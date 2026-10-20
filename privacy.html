@@ -38,7 +38,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;color:var(--muted);fon
 </ul>
 
 <h2>2. Information we collect</h2>
-<p><strong>From sellers:</strong> name, email address, phone number (optional), login credentials, shop name, settings you choose in the app, and device push-notification tokens.</p>
+<p><strong>From sellers:</strong> email address (used to send you a one-time sign-in link; we do not store passwords), name (optional), shop name, the settings you choose in the app, the browser or device push-notification subscription you create when you turn on notifications, and a session token kept on your device so you stay signed in.</p>
 <p><strong>From TikTok Shop, with the seller's authorization:</strong> order details (order ID, items, amounts, status, shipping and tracking information), buyer messages sent to the seller's shop, return and refund requests including the buyer's stated reason and any photos, and the buyer's name and shipping address as provided on the order. We receive this through TikTok Shop's APIs under the permissions the seller grants.</p>
 <p><strong>Automatically:</strong> standard technical logs (IP address, device type, app version, timestamps) and records of the actions FinalSale takes.</p>
 <p>We do not collect payment card numbers from buyers. Seller subscription payments, if any, are processed by a third-party payment processor; we do not store card numbers.</p>
@@ -57,7 +57,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;color:var(--muted);fon
 <p>We do not sell personal information and do not share it for advertising. We share information only with:</p>
 <ul>
 <li><strong>TikTok Shop</strong>, to send replies and return decisions back to the platform.</li>
-<li><strong>Service providers</strong> that help us run FinalSale: cloud hosting (United States), push-notification delivery, email delivery, error monitoring, and AI text processing. Each is bound by contract to use data only to provide services to us.</li>
+<li><strong>Service providers</strong> that help us run FinalSale: cloud hosting and database (Railway, United States), transactional email for sign-in links (Resend), push-notification delivery through your browser or device vendor's push service (Apple, Google, Mozilla), and AI text processing (Anthropic) for classifying messages and drafting replies. Each is bound by contract to use data only to provide services to us.</li>
 <li><strong>Legal and safety</strong> recipients when required by law or to protect rights, safety, or the integrity of the service.</li>
 <li>A successor in a merger, acquisition, or sale of assets, with notice to sellers.</li>
 </ul>
@@ -65,12 +65,12 @@ footer{border-top:1px solid var(--line);padding:24px 20px;color:var(--muted);fon
 <h2>5. Data retention</h2>
 <ul>
 <li>Buyer messages, order data, and return-request details are kept only as long as needed to act on them and for the seller's audit log, and are deleted no later than 180 days after the related order is closed.</li>
-<li>Seller account data is kept while the account is active.</li>
+<li>Seller account data is kept while the account is active. Sign-in links expire after 15 minutes and sessions after 30 days; push-notification subscriptions are deleted when you turn notifications off or when the push service reports them as expired.</li>
 <li>When a seller disconnects their TikTok Shop or deletes their FinalSale account, we revoke our access tokens and delete that shop's data within 30 days, except where we must retain records by law.</li>
 </ul>
 
 <h2>6. Security</h2>
-<p>Data is encrypted in transit (TLS) and at rest. TikTok access tokens and buyer personal data are stored encrypted, access is limited to personnel who need it, and administrative access requires multi-factor authentication. We maintain a written information security program and an incident-response process; if a security incident affects your data, we will notify affected sellers and TikTok Shop without undue delay.</p>
+<p>Data is encrypted in transit (TLS) and at rest. TikTok access tokens are encrypted with a key held outside the database, sign-in and session tokens are stored only as one-way hashes, push notifications are end-to-end encrypted to your device as required by the Web Push standard, buyer personal data is stored encrypted, access is limited to personnel who need it, and administrative access requires multi-factor authentication. We maintain a written information security program and an incident-response process; if a security incident affects your data, we will notify affected sellers and TikTok Shop without undue delay.</p>
 
 <h2>7. Your choices and rights</h2>
 <ul>
