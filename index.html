@@ -3,47 +3,263 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FinalSale · Customer service and returns on autopilot for TikTok Shop live-auction sellers</title>
-<meta name="description" content="FinalSale answers buyer messages and handles return requests for TikTok Shop live-auction sellers automatically, and sends damage claims to your phone for a one-tap decision.">
+<title>FinalSale — returns and buyer messages, handled, for TikTok Shop live-auction sellers</title>
+<meta name="description" content="FinalSale connects to your TikTok Shop, answers routine buyer messages in your voice, declines change-of-mind returns under final-sale rules, and sends damaged-item claims to your phone for a one-tap decision.">
+<link rel="icon" href="/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#0B0B12">
+<meta property="og:title" content="FinalSale — returns and buyer messages, handled">
+<meta property="og:description" content="For TikTok Shop live-auction sellers. Routine messages answered, change-of-mind returns declined, damage claims on your phone in one tap.">
+<meta property="og:image" content="https://finalsale.app/img/og.png">
+<meta property="og:url" content="https://finalsale.app/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
 <style>
-:root{--bg:#0B0B12;--card:#15141F;--line:#262436;--ink:#F3F2FA;--muted:#A3A0B8;--purple:#8B5CF6;--blue:#3B82F6}
+:root{--bg:#0B0B12;--panel:#15141F;--panel-2:#1C1B28;--line:#262436;--line-2:#353350;--ink:#F3F2FA;--muted:#A3A0B8;--dim:#6E6B85;--violet:#8B5CF6;--azure:#3B82F6;--ok:#4ADE80;--no:#F26D7D}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
-.wrap{max-width:960px;margin:0 auto;padding:0 20px}
-header{padding:24px 0}
-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
-.signin{color:var(--ink);text-decoration:none;font-weight:600;padding:10px 16px;border:1px solid rgba(127,127,160,.35);border-radius:10px}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);font-weight:700;font-size:20px}
-.brand span{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--purple),var(--blue));display:inline-block}
-.hero{padding:60px 0 40px}
-h1{font-size:clamp(32px,6vw,54px);line-height:1.1;letter-spacing:-1px;margin:0 0 18px}
-h1 em{font-style:normal;background:linear-gradient(90deg,#C4B5FD,#93C5FD);-webkit-background-clip:text;background-clip:text;color:transparent}
-.lead{font-size:19px;color:var(--muted);max-width:620px}
-.cta{display:inline-block;margin-top:24px;padding:14px 22px;border-radius:12px;background:linear-gradient(135deg,var(--purple),var(--blue));color:#fff;font-weight:600;text-decoration:none}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:40px 0 70px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
-.card h3{margin:0 0 6px;font-size:17px}
-.card p{margin:0;color:var(--muted);font-size:15px}
-footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:14px}
-footer a{color:#C4B5FD;text-decoration:none}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+h1,h2,h3{margin:0;letter-spacing:-.02em;font-weight:600}
+h2{font-size:clamp(26px,3.6vw,34px);line-height:1.15}
+h3{font-size:18px}
+p{margin:0}
+.muted{color:var(--muted)}
+section{padding:72px 0}
+.kicker{font-size:15px;color:var(--muted);max-width:560px;margin-top:10px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:5;background:rgba(11,11,18,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:22px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;font-size:18px;letter-spacing:-.02em}
+.brand i{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--violet),var(--azure));display:inline-block}
+nav .links{display:flex;gap:22px;margin-left:auto;font-size:15px}
+nav .links a{text-decoration:none;color:var(--muted)}
+nav .links a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border-radius:12px;font-weight:600;text-decoration:none;border:1px solid var(--line-2);background:var(--panel-2);color:var(--ink);line-height:1.2}
+.btn.primary{background:var(--violet);border-color:var(--violet);color:#fff}
+.btn.primary:hover{background:#7C4DEA}
+.btn.sm{padding:9px 14px;font-size:15px}
+
+/* hero */
+.hero{padding:64px 0 40px}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(36px,5.4vw,58px);line-height:1.04;letter-spacing:-.03em;max-width:12ch}
+.hero .lead{font-size:19px;color:var(--muted);max-width:30em;margin-top:20px}
+.hero .cta{display:flex;gap:12px;align-items:center;margin-top:28px;flex-wrap:wrap}
+.hero .note{font-size:14px;color:var(--dim);margin-top:14px}
+.phone-wrap{position:relative;justify-self:center}
+.phone{width:320px;border-radius:44px;background:#000;padding:10px;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 1px #2a2838;position:relative}
+.phone .screen{border-radius:36px;overflow:hidden;background:var(--bg);aspect-ratio:390/810;padding-top:30px}
+.phone.short .screen{aspect-ratio:auto}
+.phone img{width:100%;height:auto;display:block}
+.phone .notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:110px;height:30px;background:#000;border-radius:0 0 18px 18px;z-index:2}
+.toast{position:absolute;left:-56px;top:46px;width:300px;background:rgba(28,27,40,.96);border:1px solid var(--line-2);border-radius:16px;padding:12px 14px;display:flex;gap:12px;align-items:flex-start;box-shadow:0 20px 50px rgba(0,0,0,.5);backdrop-filter:blur(10px);z-index:3}
+.toast i{flex:none;width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--violet),var(--azure))}
+.toast b{display:block;font-size:14px}
+.toast span{display:block;font-size:13px;color:var(--muted);line-height:1.35}
+.toast small{position:absolute;right:14px;top:12px;font-size:11px;color:var(--dim)}
+
+/* ledger */
+.ledger{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-top:36px}
+.ledger>div{background:var(--panel);padding:26px 24px}
+.ledger h3{display:flex;align-items:center;gap:10px;font-size:17px;margin-bottom:6px}
+.ledger h3 i{width:10px;height:10px;border-radius:50%;flex:none}
+.ledger .sub{font-size:14px;color:var(--muted);min-height:44px}
+.ledger ul{list-style:none;padding:0;margin:18px 0 0}
+.ledger li{padding:10px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.4}
+.ledger li b{display:block;font-weight:600}
+.ledger li span{color:var(--muted);font-size:14px}
+.auto i{background:var(--azure)}.you i{background:var(--violet)}.never i{background:var(--no)}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:36px}
+.step{position:relative;padding-top:8px}
+.step .n{font-size:56px;line-height:1;font-weight:600;letter-spacing:-.04em;background:linear-gradient(135deg,#C4B5FD,#93C5FD);-webkit-background-clip:text;background-clip:text;color:transparent}
+.step h3{margin-top:12px}
+.step p{color:var(--muted);font-size:15px;margin-top:6px;max-width:30em}
+
+/* details */
+.details{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:36px}
+.d{border:1px solid var(--line);border-radius:14px;padding:18px 18px 20px;background:var(--panel)}
+.d h3{font-size:16px}
+.d p{color:var(--muted);font-size:14.5px;margin-top:6px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-top:36px}
+.two .shot{display:flex;justify-content:center}
+.two ul{margin:18px 0 0;padding:0;list-style:none}
+.two li{padding:10px 0;border-top:1px solid var(--line);color:var(--muted);font-size:15px}
+.two li b{color:var(--ink);font-weight:600}
+
+/* trust + pricing */
+.trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:40px 0}
+.trust .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.trust b{display:block;font-size:15px}
+.trust p{font-size:14px;color:var(--muted);margin-top:4px}
+.price{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:36px;display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center;margin-top:36px}
+.price .big{font-size:44px;font-weight:600;letter-spacing:-.03em;line-height:1}
+.price .big small{font-size:16px;color:var(--muted);font-weight:500;letter-spacing:0;margin-left:8px}
+.price ul{margin:16px 0 0;padding-left:18px;color:var(--muted);font-size:15px}
+.price li{margin:4px 0}
+
+/* faq */
+details{border-top:1px solid var(--line);padding:4px 0}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;padding:16px 0;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--dim);font-weight:400;font-size:22px;line-height:1}
+details[open] summary::after{content:"–"}
+details p{color:var(--muted);padding:0 0 18px;max-width:64ch;font-size:16px}
+.faq{max-width:760px;margin-top:28px}
+
+footer{padding:36px 0 48px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center}
+footer a{color:var(--muted);text-decoration:none}
+footer a:hover{color:var(--ink)}
+footer .co{margin-right:auto}
+
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr;gap:40px}
+  .hero h1{max-width:none}
+  .phone-wrap{justify-self:center}
+  .ledger,.steps,.details,.two,.price{grid-template-columns:1fr}
+  .trust .wrap{grid-template-columns:1fr 1fr}
+  nav .links a.hide{display:none}
+  section{padding:56px 0}
+}
+@media (max-width:420px){.toast{left:-6px;width:280px}.phone{width:290px}.trust .wrap{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
-<header><div class="wrap"><a class="brand" href="/"><span></span>FinalSale</a><a class="signin" href="https://app.finalsale.app/app">Sign in</a></div></header>
-<main class="wrap">
-<section class="hero">
-<h1>Customer service and returns, <em>on autopilot</em>, for live-auction sellers.</h1>
-<p class="lead">FinalSale connects to your TikTok Shop, answers routine buyer messages in your voice, declines change-of-mind returns under final-sale rules, and sends damage claims to your phone for a one-tap decision.</p>
-<a class="cta" href="https://app.finalsale.app/app">Sign in with your email</a>
-<p class="lead" style="font-size:15px;margin-top:14px">No password. Works on your phone: add it to your Home Screen and get notified the moment a claim needs you.</p>
-</section>
-<section class="grid">
-<div class="card"><h3>Chat handled</h3><p>Cancel requests, "where's my order," shipping questions and policy questions get an instant, on-brand reply.</p></div>
-<div class="card"><h3>Final sale, enforced</h3><p>Change-of-mind return requests are declined automatically with the correct TikTok Shop reason, inside the 48-hour window.</p></div>
-<div class="card"><h3>You decide on damage</h3><p>Damaged, defective or wrong-item claims arrive as a push notification with the buyer's photos. Approve or deny with one tap.</p></div>
-<div class="card"><h3>Everything logged</h3><p>Every automated reply and decision is recorded so you can review what the app did while you were off the live.</p></div>
-</section>
-</main>
-<footer><div class="wrap">© 2026 Ballin Brothers LLC · <a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Service</a> · <a href="mailto:support@finalsale.app">support@finalsale.app</a></div></footer>
+<nav><div class="wrap">
+  <a class="brand" href="/"><i></i>FinalSale</a>
+  <div class="links">
+    <a class="hide" href="#live">While you're live</a>
+    <a class="hide" href="#how">How it works</a>
+    <a class="hide" href="#faq">FAQ</a>
+    <a class="btn sm" href="https://app.finalsale.app/app">Sign in</a>
+  </div>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div>
+    <h1>Returns and buyer messages, handled while you're live.</h1>
+    <p class="lead">FinalSale connects to your TikTok Shop. Routine messages get an instant reply in your voice, change-of-mind returns are declined under final-sale rules, and damaged-item claims land on your phone with the buyer's photos for a one-tap decision.</p>
+    <div class="cta">
+      <a class="btn primary" href="https://app.finalsale.app/app">Sign in with your email</a>
+      <a class="btn" href="#how">See how it works</a>
+    </div>
+    <p class="note">No password. Add it to your Home Screen and you'll be notified the moment something needs you.</p>
+  </div>
+  <div class="phone-wrap">
+    <div class="toast" role="img" aria-label="Notification: Damaged item: $42.00. Vintage bottle 10ml. 2 photos. 1d 6h left to decide."><i></i><div><b>Damaged item: $42.00</b><span>Vintage bottle 10ml. 2 photos. 1d 6h left to decide.</span></div><small>now</small></div>
+    <div class="phone"><div class="notch"></div><div class="screen"><img src="/img/needs-you.png" width="780" height="1560" alt="FinalSale on a phone: a return request with the buyer's message, photos, TikTok's 48-hour window, and Approve refund / Deny buttons"></div></div>
+  </div>
+</div></header>
+
+<section id="live"><div class="wrap">
+  <h2>What happens while you're on a live</h2>
+  <p class="kicker">You set the rules once. Everything after that is sorted into three piles.</p>
+  <div class="ledger">
+    <div class="auto">
+      <h3><i></i>Handled for you</h3>
+      <p class="sub">Answered or decided within seconds, in your tone, and written to the log.</p>
+      <ul>
+        <li><b>"Can I cancel? I didn't mean to bid"</b><span>Final-sale reply, cancellation declined with TikTok's own reason code.</span></li>
+        <li><b>Change-of-mind return requests</b><span>Wrong size, found it cheaper, ordered by mistake: declined inside the 48-hour window.</span></li>
+        <li><b>"Where's my order?"</b><span>Replied with the carrier and tracking number from the order, plus a tap-to-track card.</span></li>
+        <li><b>"When does it ship?" and thank-yous</b><span>Your handling time, your sign-off.</span></li>
+      </ul>
+    </div>
+    <div class="you">
+      <h3><i></i>Comes to your phone</h3>
+      <p class="sub">A notification with everything you need to decide, and a bar showing how much of TikTok's window is left.</p>
+      <ul>
+        <li><b>Damaged, defective, or wrong item</b><span>Buyer's photos and note attached. Approve the refund, or deny, in one tap.</span></li>
+        <li><b>Chargeback or dispute language</b><span>Nothing is sent automatically. You reply, or the draft is one tap away.</span></li>
+        <li><b>Upset buyers and anything unclear</b><span>A drafted reply waits for you instead of guessing.</span></li>
+        <li><b>Deadline reminders</b><span>24 hours and 8 hours before TikTok decides for you.</span></li>
+      </ul>
+    </div>
+    <div class="never">
+      <h3><i></i>Never done automatically</h3>
+      <p class="sub">Some things a bot should not touch. These are hard limits, not settings.</p>
+      <ul>
+        <li><b>Denying a damage or wrong-item claim</b><span>Protected reasons always go to a person.</span></li>
+        <li><b>Promising a refund</b><span>Replies never commit you to money you haven't approved.</span></li>
+        <li><b>Acting during review mode</b><span>Your first 24 hours: every action is drafted, nothing goes out until you approve it.</span></li>
+        <li><b>Anything while paused</b><span>One switch stops all automation; requests still show up for you.</span></li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section id="how"><div class="wrap">
+  <h2>How it works</h2>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><h3>Sign in and connect your shop</h3><p>Enter your email, open the link we send, and approve FinalSale on TikTok Shop. It uses TikTok's official API with only the permissions you grant: returns, cancellations, orders, and buyer chat.</p></div>
+    <div class="step"><div class="n">2</div><h3>Set your rules in a minute</h3><p>Casual or professional tone, your sign-off, your handling time, words that should always reach you. Start in review mode and watch it draft for a day before you let it send.</p></div>
+    <div class="step"><div class="n">3</div><h3>Decide from your phone</h3><p>Add FinalSale to your Home Screen. When a claim needs you, the notification opens straight to it: the message, the photos, the amount, the clock. Approve or deny. Done.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Everything it did, in plain words</h2>
+  <div class="two">
+    <div class="shot"><div class="phone short"><div class="notch"></div><div class="screen"><img src="/img/activity.png" width="780" height="1100" alt="The Activity screen listing each automatic reply and decision with a time"></div></div></div>
+    <div>
+      <p class="muted">Come back from a live and read what happened: every reply sent, every return declined and why, every claim that was flagged for you. Nothing is hidden behind a dashboard.</p>
+      <ul>
+        <li><b>Review mode first.</b> For the first 24 hours nothing goes out without your tap, so you can see exactly how it would have replied.</li>
+        <li><b>Your words, not a bot's.</b> Two tones, your own sign-off, notes about your products that replies can draw on.</li>
+        <li><b>Real tracking.</b> "Where's my order?" gets the actual carrier and number from the order, not a canned line.</li>
+        <li><b>Pause in one tap.</b> Going on vacation, or just want to handle things yourself today? Pause, and everything waits for you.</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<div class="trust"><div class="wrap">
+  <div><b>Official TikTok Shop API</b><p>A registered TikTok Shop developer app, currently in TikTok's app review. No scraping, no shared logins.</p></div>
+  <div><b>Your access, revocable</b><p>TikTok tokens are encrypted at rest. Disconnect from Settings any time and automation stops immediately.</p></div>
+  <div><b>Policy-aware by design</b><p>Rejections use TikTok's own reason codes and respect the 48-hour response window on every request.</p></div>
+  <div><b>Made by a live seller</b><p>Built by Ballin Brothers LLC in Milwaukee for the way live auctions actually run.</p></div>
+</div></div>
+
+<section id="pricing"><div class="wrap">
+  <h2>Pricing</h2>
+  <div class="price">
+    <div>
+      <div class="big">Free during beta<small>no card needed</small></div>
+      <p class="muted" style="margin-top:14px;max-width:46ch">Early sellers use FinalSale free while we finish TikTok's app review and shape the product around real lives. Pricing will be announced before anything is ever charged, and beta sellers keep a discount.</p>
+      <ul>
+        <li>Unlimited messages and return decisions</li>
+        <li>Notifications on as many devices as you like</li>
+        <li>Direct line to the people building it</li>
+      </ul>
+    </div>
+    <div><a class="btn primary" href="https://app.finalsale.app/app" style="width:100%">Join the beta</a><p class="muted" style="font-size:14px;margin-top:12px;text-align:center">Questions first? <a href="mailto:hello@finalsale.app">hello@finalsale.app</a></p></div>
+  </div>
+</div></section>
+
+<section id="faq"><div class="wrap">
+  <h2>Questions sellers ask</h2>
+  <div class="faq">
+    <details><summary>Is this allowed under TikTok Shop's rules?</summary><p>Yes. FinalSale works through the official TikTok Shop developer platform with permissions you grant explicitly, the same way other seller tools do. It applies TikTok's own policies: live-auction wins are final sale, so change-of-mind returns can be declined, while claims for damaged, defective, wrong, or missing items are always reviewed by you. The app is currently going through TikTok's review process for developer apps.</p></details>
+    <details><summary>What if a buyer's item really did arrive broken?</summary><p>Those claims are never auto-denied. You get a notification with the buyer's photos and note, the refund amount, and how much time is left. Approve with one tap, with or without asking for the item back, or deny. Optionally, you can let small claims under a dollar amount you choose be approved automatically.</p></details>
+    <details><summary>Do I need to install an app from the App Store?</summary><p>No. FinalSale runs in your browser and installs to your Home Screen like any app: on iPhone, tap Share, then Add to Home Screen; on Android, use Install. Notifications work from there. A native app is on the roadmap and will use the same account.</p></details>
+    <details><summary>Will it reply to things it shouldn't?</summary><p>It only answers a short list of routine intents: cancel asks, return questions, shipping status, ship time, and thank-yous. Anything with dispute or chargeback language, damage, anger, or that it isn't confident about is drafted and sent to you instead. Words you add to your escalation list always reach you. And for your first 24 hours, nothing is sent at all until you approve it.</p></details>
+    <details><summary>Can I turn it off?</summary><p>Any time. Pause stops all automation while still collecting requests for you. Disconnecting your shop stops everything and removes FinalSale's access; you can reconnect later.</p></details>
+    <details><summary>Does it work for Whatnot or eBay Live?</summary><p>Not yet. FinalSale is built for TikTok Shop first. Other live platforms are on the roadmap; tell us which one you sell on at <a href="mailto:hello@finalsale.app">hello@finalsale.app</a>.</p></details>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <span class="co">© 2026 Ballin Brothers LLC, Milwaukee, WI</span>
+  <a href="/privacy">Privacy Policy</a>
+  <a href="/terms">Terms of Service</a>
+  <a href="mailto:support@finalsale.app">support@finalsale.app</a>
+</div></footer>
 </body>
 </html>
