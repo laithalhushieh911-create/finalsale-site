@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FinalSale — returns and buyer messages, handled, for TikTok Shop live-auction sellers</title>
-<meta name="description" content="FinalSale connects to your TikTok Shop, answers routine buyer messages in your voice, declines change-of-mind returns under final-sale rules, and sends damaged-item claims to your phone for a one-tap decision.">
+<meta name="description" content="FinalSale connects to your TikTok Shop, answers routine buyer messages in your voice, denies every return and cancel request under final-sale rules with TikTok's own reason codes, and sends the claims only you can judge — damaged, wrong, missing — to your phone for a one-tap decision.">
 <link rel="canonical" href="https://finalsale.app/">
 <link rel="icon" href="/icon-192.png" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#0B0B12">
 <meta property="og:site_name" content="FinalSale">
 <meta property="og:title" content="FinalSale — returns and buyer messages, handled">
-<meta property="og:description" content="For TikTok Shop live-auction sellers. Routine messages answered, change-of-mind returns declined, damage claims on your phone in one tap.">
+<meta property="og:description" content="For TikTok Shop live-auction sellers. Routine messages answered, every return denied under final-sale rules, damage and wrong-item claims on your phone in one tap.">
 <meta property="og:image" content="https://finalsale.app/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -19,10 +19,10 @@
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="FinalSale — returns and buyer messages, handled">
-<meta name="twitter:description" content="For TikTok Shop live-auction sellers. Routine messages answered, change-of-mind returns declined, damage claims on your phone in one tap.">
+<meta name="twitter:description" content="For TikTok Shop live-auction sellers. Routine messages answered, every return denied under final-sale rules, damage and wrong-item claims on your phone in one tap.">
 <meta name="twitter:image" content="https://finalsale.app/img/og.png">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"SoftwareApplication","name":"FinalSale","applicationCategory":"BusinessApplication","operatingSystem":"Web, iOS (Home Screen app), Android","url":"https://finalsale.app/","description":"Customer-service and returns automation for TikTok Shop live-auction sellers: routine buyer messages answered in your voice, change-of-mind returns declined under final-sale rules, damaged-item claims sent to your phone for a one-tap decision.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","description":"Free during beta"},"author":{"@type":"Organization","name":"Ballin Brothers LLC","address":{"@type":"PostalAddress","addressLocality":"Milwaukee","addressRegion":"WI","addressCountry":"US"},"email":"hello@finalsale.app"}}
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"FinalSale","applicationCategory":"BusinessApplication","operatingSystem":"Web, iOS (Home Screen app), Android","url":"https://finalsale.app/","description":"Customer-service and returns automation for TikTok Shop live-auction sellers: routine buyer messages answered in your voice, return and cancel requests denied under final-sale rules with TikTok reason codes, damaged, wrong or missing-item claims sent to your phone for a one-tap decision.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","description":"Free during beta"},"author":{"@type":"Organization","name":"Ballin Brothers LLC","address":{"@type":"PostalAddress","addressLocality":"Milwaukee","addressRegion":"WI","addressCountry":"US"},"email":"hello@finalsale.app"}}
 </script>
 <style>
 :root{--bg:#0B0B12;--panel:#15141F;--panel-2:#1C1B28;--line:#262436;--line-2:#353350;--ink:#F3F2FA;--muted:#A3A0B8;--dim:#6E6B85;--violet:#8B5CF6;--azure:#3B82F6;--ok:#4ADE80;--no:#F26D7D}
@@ -165,6 +165,24 @@ nav .links a.btn.primary{color:#fff}
 .price li{margin:4px 0}
 .price .after{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-size:15px;color:var(--muted)}
 .price .after b{color:var(--ink)}
+.beta-bar{margin-top:28px;border:1px solid var(--line-2);background:linear-gradient(90deg,rgba(139,92,246,.16),rgba(59,130,246,.10));border-radius:14px;padding:14px 18px;font-size:15px;color:var(--muted)}
+.beta-bar b{color:var(--ink)}
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+.tier{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:28px 26px;display:flex;flex-direction:column}
+.tier.featured{border-color:var(--violet);box-shadow:0 0 0 1px var(--violet),0 24px 60px rgba(139,92,246,.18)}
+.tier .name{font-weight:600;font-size:17px;display:flex;align-items:center;gap:10px}
+.tier .tag{font-size:12px;font-weight:600;color:#fff;background:var(--violet);border-radius:999px;padding:3px 9px}
+.tier .amt{font-size:40px;font-weight:600;letter-spacing:-.03em;line-height:1;margin-top:14px}
+.tier .amt small{font-size:15px;color:var(--muted);font-weight:500;letter-spacing:0;margin-left:4px}
+.tier .fit{font-size:14px;color:var(--muted);margin-top:8px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.tier ul{margin:16px 0 0;padding-left:18px;color:var(--muted);font-size:15px;flex:1}
+.tier li{margin:6px 0}
+.tier li b{color:var(--ink);font-weight:600}
+.tier .pays{margin-top:18px;padding-top:14px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+.fine{font-size:14px;color:var(--dim);margin-top:20px;max-width:76ch}
+.fine a{color:var(--muted)}
+.price-cta{display:flex;align-items:center;gap:18px;margin-top:22px;flex-wrap:wrap;font-size:14px}
+.price-cta .muted a{color:var(--muted)}
 
 /* faq */
 details{border-top:1px solid var(--line);padding:4px 0}
@@ -194,7 +212,7 @@ footer .co{margin-right:auto}
   .hero .wrap{grid-template-columns:1fr;gap:40px}
   .hero h1{max-width:none}
   .phone-wrap{justify-self:center}
-  .ledger,.steps,.two,.price{grid-template-columns:1fr}
+  .ledger,.steps,.two,.price,.tiers{grid-template-columns:1fr}
   .two.flip .shot{order:0}
   .trust .wrap{grid-template-columns:1fr 1fr}
   nav .links a.hide{display:none}
@@ -226,7 +244,7 @@ footer .co{margin-right:auto}
   <div>
     <span class="pill"><i></i>In TikTok's app review &middot; free during beta</span>
     <h1>Returns and buyer messages, handled while you're live.</h1>
-    <p class="lead">FinalSale connects to your TikTok Shop. Routine messages get an instant reply in your voice, change-of-mind returns are declined under final-sale rules, and damaged-item claims land on your phone with the buyer's photos for a one-tap decision.</p>
+    <p class="lead">FinalSale connects to your TikTok Shop. Routine messages get an instant reply in your voice. Every return and cancel request is denied under final-sale rules with TikTok's own reason code &mdash; except the ones only you can judge: damaged, wrong or missing items, and any claim with photos. Those land on your phone for a one-tap decision.</p>
     <div class="join" id="join" data-join="hero">
       <form novalidate>
         <input type="email" name="email" placeholder="you@yourshop.com" autocomplete="email" inputmode="email" required aria-label="Your email">
@@ -239,7 +257,7 @@ footer .co{margin-right:auto}
   </div>
   <div class="phone-wrap">
     <div class="toast" role="img" aria-label="Notification: Damaged item: $42.00. Graded card, 2 photos. 1d 6h left to decide."><i></i><div><b>Damaged item: $42.00</b><span>Graded card, 2 photos. 1d 6h left to decide.</span></div><small>now</small></div>
-    <div class="phone"><div class="notch"></div><div class="screen"><img src="/img/needs-you.png?v=3" width="780" height="1560" alt="FinalSale on a phone: a return request with the buyer's message, photo, TikTok's 48-hour window, and Approve refund / Deny buttons"></div></div>
+    <div class="phone"><div class="notch"></div><div class="screen"><img src="/img/needs-you.png?v=4" width="780" height="1560" alt="FinalSale on a phone: a return request with the buyer's message, photo, TikTok's 48-hour window, and Approve refund / Deny buttons"></div></div>
   </div>
 </div></header>
 
@@ -252,7 +270,8 @@ footer .co{margin-right:auto}
       <p class="sub">Answered or decided within seconds, in your tone, and written to the log.</p>
       <ul>
         <li><b>"Can I cancel? I didn't mean to bid"</b><span>Final-sale reply, cancellation declined with TikTok's own reason code.</span></li>
-        <li><b>Change-of-mind return requests</b><span>Wrong size, found it cheaper, ordered by mistake: declined inside TikTok's response window, with TikTok's own reason code.</span></li>
+        <li><b>Every return request that isn't a real claim</b><span>Changed mind, wrong size, found it cheaper, ordered by mistake: denied inside TikTok's window, with TikTok's own reason code.</span></li>
+        <li><b>"Doesn't meet expectations" with no photos</b><span>Denied for lack of evidence, in TikTok's own words, with a note telling the buyer how to file a real claim if there is one.</span></li>
         <li><b>"Where's my order?"</b><span>Replied with the carrier and tracking number from the order, plus a tap-to-track card.</span></li>
         <li><b>"When does it ship?" and thank-yous</b><span>Your handling time, your sign-off.</span></li>
       </ul>
@@ -261,7 +280,8 @@ footer .co{margin-right:auto}
       <h3><i></i>Comes to your phone</h3>
       <p class="sub">A notification with everything you need to decide, and a bar showing how much of TikTok's response window is left.</p>
       <ul>
-        <li><b>Damaged, defective, or wrong item</b><span>Buyer's photos and note attached. Approve the refund, or deny, in one tap.</span></li>
+        <li><b>Damaged, defective, wrong or missing item, not received</b><span>Only you can check these. Buyer's photos and note attached; approve the refund, or deny, in one tap.</span></li>
+        <li><b>Any claim with photos or video attached</b><span>Evidence means a person looks. Deny it with the right reason, or make it right.</span></li>
         <li><b>Chargeback or dispute language</b><span>Nothing is sent automatically. You reply, or the draft is one tap away.</span></li>
         <li><b>Upset buyers and anything unclear</b><span>A drafted reply waits for you instead of guessing.</span></li>
         <li><b>Deadline reminders</b><span>At the halfway point and again near the end of TikTok's window, before it decides for you.</span></li>
@@ -271,7 +291,8 @@ footer .co{margin-right:auto}
       <h3><i></i>Never done automatically</h3>
       <p class="sub">Some things a bot should not touch. These are hard limits, not settings.</p>
       <ul>
-        <li><b>Denying a damage or wrong-item claim</b><span>Protected reasons always go to a person.</span></li>
+        <li><b>Denying a damage, defect, wrong-item, missing-item or not-received claim</b><span>Those five always go to a person.</span></li>
+        <li><b>Denying a claim that has evidence attached</b><span>Photos or video mean a human decides, so your Invalid Rejection Rate stays clean.</span></li>
         <li><b>Promising a refund</b><span>Replies never commit you to money you haven't approved.</span></li>
         <li><b>Acting during review mode</b><span>Your first 24 hours: every action is drafted, nothing goes out until you approve it.</span></li>
         <li><b>Anything while paused</b><span>One switch stops all automation; requests still show up for you.</span></li>
@@ -300,7 +321,7 @@ footer .co{margin-right:auto}
       <span class="tag">Shop Performance Score metric</span>
       <h3>After-Sales Handling Time: 12 hours or less</h3>
       <p class="rule">Your average time to handle refund, return, cancellation and replacement requests over 60 days. TikTok's current guidance: 12 hours or shorter. Miss the hard deadlines &mdash; 24 hours on cancellations and unshipped refunds, 48 hours on product-issue returns, 2&ndash;4 business days on the rest &mdash; and TikTok may approve the request for you.</p>
-      <p class="fs"><b>With FinalSale:</b> change-of-mind returns and post-auction cancels are decided in seconds; everything else reaches your phone within a minute with a countdown. Your average drops from hours to minutes, and nothing is ever approved by default.</p>
+      <p class="fs"><b>With FinalSale:</b> return and cancel requests are denied in seconds; the few that need you (damaged, wrong, missing, or with photos) reach your phone within a minute with a countdown. Your average drops from hours to minutes, and nothing is ever approved by default.</p>
     </div>
     <div class="w">
       <span class="tag">After-sales rule</span>
@@ -345,12 +366,13 @@ footer .co{margin-right:auto}
 
 <section id="rules" style="padding-top:0"><div class="wrap">
   <div class="two flip">
-    <div class="shot"><div class="phone short"><div class="notch"></div><div class="screen"><img src="/img/settings.png?v=1" width="780" height="1030" alt="The Settings screen: review mode banner, Pause everything, Deny change-of-mind returns, Deny cancel requests after the auction"></div></div></div>
+    <div class="shot"><div class="phone short"><div class="notch"></div><div class="screen"><img src="/img/settings.png?v=2" width="780" height="1160" alt="The Settings screen: review mode banner, Pause everything, Deny returns under final sale, Deny cancel requests after the auction"></div></div></div>
     <div>
       <h2>Your rules, in plain switches</h2>
       <p class="muted">No scripts to write and no flowcharts. The settings read like the rules you already run your shop by, and every one of them can be flipped mid-live.</p>
       <ul>
-        <li><b>Final sale, enforced.</b> Deny change-of-mind returns and post-auction cancel requests, with TikTok's own reason codes, so the decision holds up.</li>
+        <li><b>Deny by default.</b> Every return and post-auction cancel request is denied with TikTok's own reason code &mdash; except the five only you can judge, and anything with evidence.</li>
+        <li><b>It learns.</b> Every denial is followed up: did TikTok keep it, or overturn it on appeal? The reasons that hold up win next time, across every FinalSale shop, and you see your upheld rate in Activity.</li>
         <li><b>Damage claims under a limit you set.</b> Optionally refund small claims with photos automatically; everything above it comes to you.</li>
         <li><b>Your escalation words.</b> "Chargeback", "lawyer", or anything you add always reaches a person, never a bot.</li>
         <li><b>Review mode first.</b> For the first 24 hours nothing goes out without your tap, so you can see exactly how it would have replied.</li>
@@ -361,7 +383,7 @@ footer .co{margin-right:auto}
 
 <section style="padding-top:0"><div class="wrap">
   <div class="two">
-    <div class="shot"><div class="phone short"><div class="notch"></div><div class="screen"><img src="/img/activity.png?v=3" width="780" height="1000" alt="The Activity screen listing each automatic reply and decision with a time"></div></div></div>
+    <div class="shot"><div class="phone short"><div class="notch"></div><div class="screen"><img src="/img/activity.png?v=4" width="780" height="1210" alt="The Activity screen listing each automatic reply and decision with a time"></div></div></div>
     <div>
       <h2>Everything it did, in plain words</h2>
       <p class="muted">Come back from a live and read what happened: every reply sent, every return declined and why, every claim that was flagged for you. Nothing is hidden behind a dashboard.</p>
@@ -397,21 +419,51 @@ footer .co{margin-right:auto}
 
 <section id="pricing"><div class="wrap">
   <h2>Pricing</h2>
-  <p class="kicker">One plan. It should pay for itself the first time it declines a $40 change-of-mind return while you're asleep.</p>
-  <div class="price">
-    <div>
-      <div class="big">Free during beta<small>no card needed</small></div>
-      <p class="muted" style="margin-top:14px;max-width:46ch">Early sellers use FinalSale free while TikTok finishes its app review and we shape the product around real lives.</p>
+  <p class="kicker">Free while we're in beta. After that, three plans sized by how much you sell. Every plan includes everything: deny-by-default returns, replies in your voice, AI replies, phone notifications, and the learning that gets better with every denial.</p>
+  <div class="beta-bar"><b>Free during beta, no card needed.</b> Early sellers keep <b>30% off for 12 months</b> on any plan once pricing starts. You'll hear by email before anything is ever charged.</div>
+  <div class="tiers">
+    <div class="tier">
+      <div class="name">Basic</div>
+      <div class="amt">$99<small>/month</small></div>
+      <div class="fit">Up to 2,500 orders a month</div>
       <ul>
-        <li>Unlimited messages and return decisions</li>
-        <li>Notifications on as many devices as you like</li>
-        <li>One shop per account during beta; more on request</li>
-        <li>Direct line to the people building it</li>
+        <li><b>1,000 AI credits</b> a month (1 credit = 1 AI-written reply)</li>
+        <li>Unlimited return and cancel decisions</li>
+        <li>1 TikTok Shop, 2 phones</li>
+        <li>Stored replies in your voice, unlimited</li>
+        <li>Email support</li>
       </ul>
-      <p class="after"><b>After beta: $29 a month, cancel anytime.</b> Beta sellers keep a discount for as long as they stay. Pricing is announced by email before anything is ever charged.</p>
+      <p class="pays">A typical Basic seller sees about $1,000 of refunds denied a month.</p>
     </div>
-    <div><a class="btn primary" href="#final-join" style="width:100%">Get early access</a><p class="muted" style="font-size:14px;margin-top:12px;text-align:center">Questions first? <a href="mailto:hello@finalsale.app">hello@finalsale.app</a></p></div>
+    <div class="tier featured">
+      <div class="name">Pro <span class="tag">Most sellers</span></div>
+      <div class="amt">$299<small>/month</small></div>
+      <div class="fit">Up to 15,000 orders a month</div>
+      <ul>
+        <li><b>6,000 AI credits</b> a month</li>
+        <li>Unlimited return and cancel decisions</li>
+        <li>3 TikTok Shops, 5 team members</li>
+        <li>AI trained on your product notes</li>
+        <li>Exports and priority support</li>
+      </ul>
+      <p class="pays">A typical Pro seller sees about $7,000 of refunds denied a month.</p>
+    </div>
+    <div class="tier">
+      <div class="name">Expert</div>
+      <div class="amt">$799<small>/month</small></div>
+      <div class="fit">Up to 75,000 orders a month</div>
+      <ul>
+        <li><b>25,000 AI credits</b> a month</li>
+        <li>Unlimited return and cancel decisions</li>
+        <li>10 TikTok Shops, unlimited team</li>
+        <li>Custom rules written with you</li>
+        <li>Onboarding call, same-day support</li>
+      </ul>
+      <p class="pays">A typical Expert seller sees about $40,000 of refunds denied a month.</p>
+    </div>
   </div>
+  <p class="fine">Credits reset monthly. Run out and stored replies take over, so nothing goes unanswered; top up any time at 1,000 for $29, 5,000 for $99 or 20,000 for $399. Annual plans get two months free. Over 75,000 orders a month? <a href="mailto:hello@finalsale.app">Talk to us</a> about Enterprise.</p>
+  <div class="price-cta"><a class="btn primary" href="#final-join">Get early access</a><span class="muted">Questions first? <a href="mailto:hello@finalsale.app">hello@finalsale.app</a></span></div>
 </div></section>
 
 <section id="faq"><div class="wrap">
@@ -419,11 +471,14 @@ footer .co{margin-right:auto}
   <div class="faq">
     <details><summary>When can I start?</summary><p>FinalSale is a TikTok Shop developer app, and TikTok is reviewing it now. Join the list above and you'll get one email the day it clears, with a sign-in link. Connecting your shop takes about two minutes, and the first 24 hours run in review mode so you can watch before anything is sent.</p></details>
     <details><summary>Is this allowed under TikTok Shop's rules?</summary><p>Yes. FinalSale works through the official TikTok Shop developer platform with permissions you grant explicitly, the same way other seller tools do. It applies TikTok's own policies: since June 2026 TikTok treats LIVE Auction, collectible and pre-owned orders as final sale for change-of-mind returns, so those can be declined with TikTok's reason codes, while claims for damaged, defective, wrong, or missing items are always reviewed by you. Every decision is one TikTok lets a seller make by hand in Seller Center; FinalSale just makes it on time.</p></details>
+    <details><summary>Which return requests does it deny?</summary><p>All of them, with TikTok's own reason code, except the ones only you can judge: damaged, defective, wrong item, missing items, and not received &mdash; plus any request where the buyer attached photos or video. A "doesn't meet expectations" request with no evidence is denied for lack of evidence, with a note telling the buyer how to file a real claim. Every denial is logged with its reason.</p></details>
+    <details><summary>Does it get better over time?</summary><p>Yes. FinalSale follows up on every denial to see what TikTok did with it: kept it, or overturned it after a buyer appeal. Those outcomes, across every shop on FinalSale, decide which of TikTok's reject reasons it uses for each kind of request, so the upheld rate climbs as the network grows. Your own upheld rate is on the Activity screen.</p></details>
     <details><summary>What if a buyer's item really did arrive broken?</summary><p>Those claims are never auto-denied. You get a notification with the buyer's photos and note, the refund amount, and how much time is left. Approve with one tap, with or without asking for the item back, or deny. Optionally, you can let small claims under a dollar amount you choose be approved automatically.</p></details>
     <details><summary>Does it answer buyer messages from day one?</summary><p>Returns and cancellations work the moment your shop is connected. Buyer-chat replies switch on as soon as TikTok approves the app's customer-service permission, which is in their review queue now; until then every message still shows up for you to answer from the app.</p></details>
     <details><summary>Do I need to install an app from the App Store?</summary><p>No. FinalSale runs in your browser and installs to your Home Screen like any app: on iPhone, tap Share, then Add to Home Screen; on Android, use Install. Sign in there with the 6-digit code from your email and notifications work from then on. A native app is on the roadmap and will use the same account.</p></details>
     <details><summary>Will it reply to things it shouldn't?</summary><p>It only answers a short list of routine intents: cancel asks, return questions, shipping status, ship time, and thank-yous. Anything with dispute or chargeback language, damage, anger, or that it isn't confident about is drafted and sent to you instead. Words you add to your escalation list always reach you. And for your first 24 hours, nothing is sent at all until you approve it.</p></details>
-    <details><summary>What does it cost?</summary><p>Nothing during beta. After launch it's $29 a month per shop, cancel anytime, and beta sellers keep a discount for as long as they stay. You'll be told by email before anything is charged.</p></details>
+    <details><summary>What does it cost?</summary><p>Nothing during beta, no card needed. After launch there are three plans sized by order volume: Basic at $99, Pro at $299 and Expert at $799 a month, each with a monthly allowance of AI credits and unlimited return decisions. Beta sellers keep 30% off for 12 months. Cancel anytime, and you'll be told by email before anything is charged.</p></details>
+    <details><summary>What is an AI credit?</summary><p>One AI-written reply to a buyer. Routine messages (cancel asks, "where's my order", shipping times, thank-yous) use your stored replies and cost nothing. The rest go to the AI and use one credit each. If you run out, stored replies take over so nothing goes unanswered, and you can top up in a tap.</p></details>
     <details><summary>Can I turn it off?</summary><p>Any time. Pause stops all automation while still collecting requests for you. Disconnecting your shop stops everything and removes FinalSale's access; you can reconnect later.</p></details>
     <details><summary>Does it work for Whatnot or eBay Live?</summary><p>Not yet. FinalSale is built for TikTok Shop first. Other live platforms are on the roadmap; tell us which one you sell on at <a href="mailto:hello@finalsale.app">hello@finalsale.app</a>.</p></details>
   </div>
