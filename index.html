@@ -107,6 +107,23 @@ nav .links a.btn.primary{color:#fff}
 .ledger li span{color:var(--muted);font-size:14px}
 .auto i{background:var(--azure)}.you i{background:var(--violet)}.never i{background:var(--no)}
 
+/* why it matters (policy grid) */
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:32px}
+.why .w{border:1px solid var(--line);border-radius:16px;padding:20px 20px 22px;background:var(--panel);display:flex;flex-direction:column;gap:8px}
+.why .w .tag{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+.why .w h3{font-size:17px;line-height:1.3}
+.why .w .rule{color:var(--muted);font-size:14.5px;line-height:1.5;border-left:2px solid var(--line-2);padding-left:12px;margin:2px 0 4px}
+.why .w .fs{font-size:15px;line-height:1.5}
+.why .w .fs b{color:#C4B5FD;font-weight:600}
+.unlock{margin-top:28px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,rgba(139,92,246,.07),transparent);padding:22px 24px}
+.unlock h3{font-size:16px;margin-bottom:12px}
+.unlock ol{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.unlock li{font-size:14px;color:var(--muted);line-height:1.45}
+.unlock li b{display:block;font-size:22px;color:var(--ink);letter-spacing:-.02em;margin-bottom:4px}
+.unlock li.bad b{color:var(--no)}
+.fineprint{font-size:13px;color:var(--dim);margin-top:16px;max-width:70ch}
+@media (max-width:860px){.why{grid-template-columns:1fr}.unlock ol{grid-template-columns:1fr 1fr}}
+
 /* steps */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:36px}
 .step{position:relative;padding-top:8px}
@@ -196,7 +213,7 @@ footer .co{margin-right:auto}
 <nav><div class="wrap">
   <a class="brand" href="/"><i></i>FinalSale</a>
   <div class="links">
-    <a class="hide" href="#live">While you're live</a>
+    <a class="hide" href="#why">Why it matters</a>
     <a class="hide" href="#how">How it works</a>
     <a class="hide" href="#pricing">Pricing</a>
     <a class="hide" href="#faq">FAQ</a>
@@ -235,19 +252,19 @@ footer .co{margin-right:auto}
       <p class="sub">Answered or decided within seconds, in your tone, and written to the log.</p>
       <ul>
         <li><b>"Can I cancel? I didn't mean to bid"</b><span>Final-sale reply, cancellation declined with TikTok's own reason code.</span></li>
-        <li><b>Change-of-mind return requests</b><span>Wrong size, found it cheaper, ordered by mistake: declined inside the 48-hour window.</span></li>
+        <li><b>Change-of-mind return requests</b><span>Wrong size, found it cheaper, ordered by mistake: declined inside TikTok's response window, with TikTok's own reason code.</span></li>
         <li><b>"Where's my order?"</b><span>Replied with the carrier and tracking number from the order, plus a tap-to-track card.</span></li>
         <li><b>"When does it ship?" and thank-yous</b><span>Your handling time, your sign-off.</span></li>
       </ul>
     </div>
     <div class="you">
       <h3><i></i>Comes to your phone</h3>
-      <p class="sub">A notification with everything you need to decide, and a bar showing how much of TikTok's window is left.</p>
+      <p class="sub">A notification with everything you need to decide, and a bar showing how much of TikTok's response window is left.</p>
       <ul>
         <li><b>Damaged, defective, or wrong item</b><span>Buyer's photos and note attached. Approve the refund, or deny, in one tap.</span></li>
         <li><b>Chargeback or dispute language</b><span>Nothing is sent automatically. You reply, or the draft is one tap away.</span></li>
         <li><b>Upset buyers and anything unclear</b><span>A drafted reply waits for you instead of guessing.</span></li>
-        <li><b>Deadline reminders</b><span>24 hours and 8 hours before TikTok decides for you.</span></li>
+        <li><b>Deadline reminders</b><span>At the halfway point and again near the end of TikTok's window, before it decides for you.</span></li>
       </ul>
     </div>
     <div class="never">
@@ -260,6 +277,60 @@ footer .co{margin-right:auto}
         <li><b>Anything while paused</b><span>One switch stops all automation; requests still show up for you.</span></li>
       </ul>
     </div>
+  </div>
+</div></section>
+
+<section id="why"><div class="wrap">
+  <h2>TikTok grades you on exactly this</h2>
+  <p class="kicker">Your Shop Performance Score (0&ndash;5) decides how much traffic you get, whether you can run auctions, whether you keep affiliates, and how fast you get paid. Three of its six metrics are customer service. Here is what TikTok's own seller policies say, and what FinalSale does about each.</p>
+  <div class="why">
+    <div class="w">
+      <span class="tag">Customer-service rule</span>
+      <h3>24-Hour Response Rate: at least 90%</h3>
+      <p class="rule">Every buyer chat needs a meaningful reply within 24 hours &mdash; &ldquo;Hi&rdquo; doesn't count, weekends count, and TikTok's own chatbot replies are excluded. Below 90% is a warning; below 85%, enforcement.</p>
+      <p class="fs"><b>With FinalSale:</b> routine questions get a real answer in seconds, at 2am and on Sundays, sent from your shop's chat as you &mdash; not from TikTok's canned chatbot.</p>
+    </div>
+    <div class="w">
+      <span class="tag">Shop Performance Score metric</span>
+      <h3>IM Dissatisfaction Rate</h3>
+      <p class="rule">The share of your chats rated one or two stars over 60 days. TikTok's own estimate: every hour a question sits unanswered raises one- and two-star ratings by about 5%. Top sellers stay under 15%.</p>
+      <p class="fs"><b>With FinalSale:</b> the wait is gone for routine questions, and the answer is accurate &mdash; the real tracking number, your real handling time. Anything heated goes to a person, never a bot.</p>
+    </div>
+    <div class="w">
+      <span class="tag">Shop Performance Score metric</span>
+      <h3>After-Sales Handling Time: 12 hours or less</h3>
+      <p class="rule">Your average time to handle refund, return, cancellation and replacement requests over 60 days. Healthy is 12 hours or shorter. Miss the hard deadlines &mdash; 24 hours on cancellations, 48 hours on product-issue returns &mdash; and TikTok may approve the request for you.</p>
+      <p class="fs"><b>With FinalSale:</b> change-of-mind returns and post-auction cancels are decided in seconds; everything else reaches your phone within a minute with a countdown. Your average drops from hours to minutes, and nothing is ever approved by default.</p>
+    </div>
+    <div class="w">
+      <span class="tag">After-sales rule</span>
+      <h3>Invalid Seller Rejection Rate: under 20%</h3>
+      <p class="rule">Measured over a rolling 8 weeks. At 20% or higher you get a warning, and TikTok moves your after-sales requests to mandated platform review &mdash; it decides your returns for you.</p>
+      <p class="fs"><b>With FinalSale:</b> every rejection uses TikTok's own reason codes for that request, and damaged, wrong or missing-item claims are never auto-denied, so your rejections hold up.</p>
+    </div>
+    <div class="w">
+      <span class="tag">LIVE Auction rules, 2026</span>
+      <h3>Auction wins are binding and final sale &mdash; the asks didn't stop</h3>
+      <p class="rule">Since June 2026, change-of-mind returns aren't allowed on LIVE Auction, collectible and pre-owned orders. Buyer protection still applies for valid issues, evidence is due within 14 days of delivery, and your after-sales duties don't end when the stream does.</p>
+      <p class="fs"><b>With FinalSale:</b> the &ldquo;can I cancel&rdquo; chats, the pre-shipment cancel requests with their 24-hour clock, and the &ldquo;not as described&rdquo; claims that replaced change-of-mind returns are each answered the right way, inside the window.</p>
+    </div>
+    <div class="w">
+      <span class="tag">Account Health Rating</span>
+      <h3>Response failures cost points you can't afford</h3>
+      <p class="rule">Every shop starts at 200 points. Customer-service violations can deduct points. At 150, no new listings or campaigns for 7 days; at 100, 14 days; at 50, 28 days; at 0 the shop may be permanently deactivated.</p>
+      <p class="fs"><b>With FinalSale:</b> every action is one a seller may take by hand in Seller Center, with TikTok's reason codes, logged with the reason &mdash; nothing that adds a violation, and a record if you ever need to appeal.</p>
+    </div>
+  </div>
+  <div class="unlock">
+    <h3>What the score unlocks</h3>
+    <ol>
+      <li><b>2.5</b>Countdown Bidding auctions and Flash Deals; +10% visibility in search and recommendations.</li>
+      <li><b>3.5</b>Affiliate marketing and campaigns, 5-day settlement, TikTok-funded promotions; +20% visibility.</li>
+      <li><b>4.0</b>1-day Express Settlement and Star Seller eligibility.</li>
+      <li><b>4.5</b>+30% visibility.</li>
+      <li class="bad"><b>&lt;3.0</b>Affiliate marketing and campaigns terminated; CRM access revoked.</li>
+    </ol>
+    <p class="fineprint">Quoted from TikTok Shop US Seller Center policies, June&ndash;October 2026: 24-Hour Response Rate, IM Dissatisfaction Rate, After-Sales Handling Time, Invalid Seller Rejection Rate, Shop Performance Score, Account Health Rating, Customer Order Cancellation, Return &amp; Refund Policy, and the LIVE Auction terms. TikTok changes these; FinalSale updates its rules when they do.</p>
   </div>
 </div></section>
 
@@ -307,7 +378,7 @@ footer .co{margin-right:auto}
 <div class="trust"><div class="wrap">
   <div><b>Official TikTok Shop API</b><p>A registered TikTok Shop developer app, currently in TikTok's app review. No scraping, no shared logins.</p></div>
   <div><b>Your access, revocable</b><p>TikTok tokens are encrypted at rest. Disconnect from Settings any time and automation stops immediately.</p></div>
-  <div><b>Policy-aware by design</b><p>Rejections use TikTok's own reason codes and respect the 48-hour response window on every request.</p></div>
+  <div><b>Policy-aware by design</b><p>Rejections use TikTok's own reason codes and respect TikTok's response deadline on every request.</p></div>
   <div><b>Made by a live seller</b><p>Built by a TikTok Shop live seller in Milwaukee, for the way live auctions actually run.</p></div>
 </div></div>
 
@@ -347,7 +418,7 @@ footer .co{margin-right:auto}
   <h2>Questions sellers ask</h2>
   <div class="faq">
     <details><summary>When can I start?</summary><p>FinalSale is a TikTok Shop developer app, and TikTok is reviewing it now. Join the list above and you'll get one email the day it clears, with a sign-in link. Connecting your shop takes about two minutes, and the first 24 hours run in review mode so you can watch before anything is sent.</p></details>
-    <details><summary>Is this allowed under TikTok Shop's rules?</summary><p>Yes. FinalSale works through the official TikTok Shop developer platform with permissions you grant explicitly, the same way other seller tools do. It applies TikTok's own policies: live-auction wins are final sale, so change-of-mind returns can be declined, while claims for damaged, defective, wrong, or missing items are always reviewed by you.</p></details>
+    <details><summary>Is this allowed under TikTok Shop's rules?</summary><p>Yes. FinalSale works through the official TikTok Shop developer platform with permissions you grant explicitly, the same way other seller tools do. It applies TikTok's own policies: since June 2026 TikTok treats LIVE Auction, collectible and pre-owned orders as final sale for change-of-mind returns, so those can be declined with TikTok's reason codes, while claims for damaged, defective, wrong, or missing items are always reviewed by you. Every decision is one TikTok lets a seller make by hand in Seller Center; FinalSale just makes it on time.</p></details>
     <details><summary>What if a buyer's item really did arrive broken?</summary><p>Those claims are never auto-denied. You get a notification with the buyer's photos and note, the refund amount, and how much time is left. Approve with one tap, with or without asking for the item back, or deny. Optionally, you can let small claims under a dollar amount you choose be approved automatically.</p></details>
     <details><summary>Does it answer buyer messages from day one?</summary><p>Returns and cancellations work the moment your shop is connected. Buyer-chat replies switch on as soon as TikTok approves the app's customer-service permission, which is in their review queue now; until then every message still shows up for you to answer from the app.</p></details>
     <details><summary>Do I need to install an app from the App Store?</summary><p>No. FinalSale runs in your browser and installs to your Home Screen like any app: on iPhone, tap Share, then Add to Home Screen; on Android, use Install. Sign in there with the 6-digit code from your email and notifications work from then on. A native app is on the roadmap and will use the same account.</p></details>
