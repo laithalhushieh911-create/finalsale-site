@@ -172,6 +172,12 @@ nav .links a.btn.primary{color:#fff}
 .tier.featured{border-color:var(--violet);box-shadow:0 0 0 1px var(--violet),0 24px 60px rgba(139,92,246,.18)}
 .tier .name{font-weight:600;font-size:17px;display:flex;align-items:center;gap:10px}
 .tier .tag{font-size:12px;font-weight:600;color:#fff;background:var(--violet);border-radius:999px;padding:3px 9px}
+.billing-toggle{display:inline-flex;gap:6px;padding:4px;border:1px solid var(--line);border-radius:12px;margin:18px 0 6px}
+.billing-toggle button{background:transparent;border:0;color:var(--muted);font:inherit;font-weight:600;padding:8px 14px;border-radius:9px;cursor:pointer}
+.billing-toggle button.on{background:var(--violet);color:#fff}
+.billing-toggle .save{display:inline-block;margin-left:6px;font-size:12px;padding:2px 7px;border-radius:999px;background:rgba(52,211,153,.15);color:#34d399;font-weight:600}
+.billing-toggle button.on .save{background:rgba(255,255,255,.2);color:#fff}
+.tier .billed{color:var(--muted);font-size:13px;margin-top:6px}
 .tier .amt{font-size:40px;font-weight:600;letter-spacing:-.03em;line-height:1;margin-top:14px}
 .tier .amt small{font-size:15px;color:var(--muted);font-weight:500;letter-spacing:0;margin-left:4px}
 .tier .fit{font-size:14px;color:var(--muted);margin-top:8px;padding-bottom:16px;border-bottom:1px solid var(--line)}
@@ -419,10 +425,15 @@ footer .co{margin-right:auto}
   <h2>Pricing</h2>
   <p class="kicker">Free while we're in beta. After that, three plans sized by how much you sell. Every plan includes everything: deny-by-default returns, replies in your voice, AI replies, phone notifications, and the learning that gets better with every denial.</p>
   <div class="beta-bar"><b>Free during beta, no card needed.</b> You'll hear by email before anything is ever charged.</div>
+  <div class="billing-toggle" role="group" aria-label="Billing period">
+    <button type="button" class="on" data-interval="month" aria-pressed="true">Monthly</button>
+    <button type="button" data-interval="year" aria-pressed="false">Annual <span class="save">save 20%</span></button>
+  </div>
   <div class="tiers">
     <div class="tier">
       <div class="name">Basic</div>
-      <div class="amt">$99<small>/month</small></div>
+      <div class="amt"><span data-month="$99" data-year="$79">$99</span><small>/month</small></div>
+      <div class="billed" hidden>Billed $948 a year — $240 less than monthly</div>
       <div class="fit">Up to 2,500 orders a month</div>
       <ul>
         <li><b>1,000 AI credits</b> a month (1 credit = 1 AI-written reply)</li>
@@ -435,7 +446,8 @@ footer .co{margin-right:auto}
     </div>
     <div class="tier featured">
       <div class="name">Pro <span class="tag">Most sellers</span></div>
-      <div class="amt">$299<small>/month</small></div>
+      <div class="amt"><span data-month="$299" data-year="$239">$299</span><small>/month</small></div>
+      <div class="billed" hidden>Billed $2,868 a year — $720 less than monthly</div>
       <div class="fit">Up to 15,000 orders a month</div>
       <ul>
         <li><b>6,000 AI credits</b> a month</li>
@@ -448,7 +460,8 @@ footer .co{margin-right:auto}
     </div>
     <div class="tier">
       <div class="name">Expert</div>
-      <div class="amt">$799<small>/month</small></div>
+      <div class="amt"><span data-month="$799" data-year="$639">$799</span><small>/month</small></div>
+      <div class="billed" hidden>Billed $7,668 a year — $1,920 less than monthly</div>
       <div class="fit">Up to 75,000 orders a month</div>
       <ul>
         <li><b>25,000 AI credits</b> a month</li>
@@ -460,7 +473,7 @@ footer .co{margin-right:auto}
       <p class="pays">A typical Expert seller sees about $40,000 of refunds denied a month.</p>
     </div>
   </div>
-  <p class="fine">Discount codes go in at checkout. Credits reset monthly. Run out and stored replies take over, so nothing goes unanswered; top up any time at 1,000 for $29, 5,000 for $99 or 20,000 for $399. Over 75,000 orders a month? <a href="mailto:hello@finalsale.app">Talk to us</a> about Enterprise.</p>
+  <p class="fine">Pay monthly, or annually at 20% off. Discount codes go in at checkout. Credits reset monthly on every plan. Run out and stored replies take over, so nothing goes unanswered; top up any time at 1,000 for $29, 5,000 for $99 or 20,000 for $399. Over 75,000 orders a month? <a href="mailto:hello@finalsale.app">Talk to us</a> about Enterprise.</p>
   <div class="price-cta"><a class="btn primary" href="#final-join">Get early access</a><span class="muted">Questions first? <a href="mailto:hello@finalsale.app">hello@finalsale.app</a></span></div>
 </div></section>
 
@@ -475,7 +488,7 @@ footer .co{margin-right:auto}
     <details><summary>Does it answer buyer messages from day one?</summary><p>Returns and cancellations work the moment your shop is connected. Buyer-chat replies switch on as soon as TikTok approves the app's customer-service permission, which is in their review queue now; until then every message still shows up for you to answer from the app.</p></details>
     <details><summary>Do I need to install an app from the App Store?</summary><p>No. FinalSale runs in your browser and installs to your Home Screen like any app: on iPhone, tap Share, then Add to Home Screen; on Android, use Install. Sign in there with the 6-digit code from your email and notifications work from then on. A native app is on the roadmap and will use the same account.</p></details>
     <details><summary>Will it reply to things it shouldn't?</summary><p>It only answers a short list of routine intents: cancel asks, return questions, shipping status, ship time, and thank-yous. Anything with dispute or chargeback language, damage, anger, or that it isn't confident about is drafted and sent to you instead. Words you add to your escalation list always reach you. And for your first 24 hours, nothing is sent at all until you approve it.</p></details>
-    <details><summary>What does it cost?</summary><p>Nothing during beta, no card needed. After launch there are three plans sized by order volume: Basic at $99, Pro at $299 and Expert at $799 a month, each with a monthly allowance of AI credits and unlimited return decisions. Cancel anytime, and you'll be told by email before anything is charged.</p></details>
+    <details><summary>What does it cost?</summary><p>Nothing during beta, no card needed. After launch there are three plans sized by order volume: Basic at $99, Pro at $299 and Expert at $799 a month (or 20% less on an annual plan: $79, $239 and $639 a month billed yearly), each with a monthly allowance of AI credits and unlimited return decisions. Cancel anytime, and you'll be told by email before anything is charged.</p></details>
     <details><summary>What is an AI credit?</summary><p>One AI-written reply to a buyer. Routine messages (cancel asks, "where's my order", shipping times, thank-yous) use your stored replies and cost nothing. The rest go to the AI and use one credit each. If you run out, stored replies take over so nothing goes unanswered, and you can top up in a tap.</p></details>
     <details><summary>Can I turn it off?</summary><p>Any time. Pause stops all automation while still collecting requests for you. Disconnecting your shop stops everything and removes FinalSale's access; you can reconnect later.</p></details>
     <details><summary>Does it work for Whatnot or eBay Live?</summary><p>Not yet. FinalSale is built for TikTok Shop first. Other live platforms are on the roadmap; tell us which one you sell on at <a href="mailto:hello@finalsale.app">hello@finalsale.app</a>.</p></details>
@@ -544,6 +557,17 @@ footer .co{margin-right:auto}
       }
     });
   });
+})();
+</script>
+<script>
+(function(){
+  var btns=document.querySelectorAll('.billing-toggle button');
+  function set(iv){
+    btns.forEach(function(b){var on=b.dataset.interval===iv;b.classList.toggle('on',on);b.setAttribute('aria-pressed',on)});
+    document.querySelectorAll('.tier .amt span[data-month]').forEach(function(sp){sp.textContent=iv==='year'?sp.dataset.year:sp.dataset.month});
+    document.querySelectorAll('.tier .billed').forEach(function(el){el.hidden=iv!=='year'});
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){set(b.dataset.interval)})});
 })();
 </script>
 </body>
