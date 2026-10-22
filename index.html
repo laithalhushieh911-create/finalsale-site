@@ -17,6 +17,11 @@
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://finalsale.app/">
 <meta property="og:type" content="website">
+<meta property="og:video" content="https://finalsale.app/img/demo.mp4">
+<meta property="og:video:secure_url" content="https://finalsale.app/img/demo.mp4">
+<meta property="og:video:type" content="video/mp4">
+<meta property="og:video:width" content="780">
+<meta property="og:video:height" content="1688">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="FinalSale — returns and buyer messages, handled">
 <meta name="twitter:description" content="For TikTok Shop live-auction sellers. Routine messages answered, every return denied under final-sale rules, damage and wrong-item claims on your phone in one tap.">
@@ -198,6 +203,34 @@ nav .links a.btn.primary{color:#fff}
 .price .after b{color:var(--ink)}
 .beta-bar{margin-top:28px;border:1px solid var(--line-2);background:linear-gradient(90deg,rgba(139,92,246,.16),rgba(59,130,246,.10));border-radius:14px;padding:14px 18px;font-size:15px;color:var(--muted)}
 .beta-bar b{color:var(--ink)}
+.demo-list{list-style:none;margin:16px auto 0;padding:0;max-width:340px;font-size:13.5px;color:var(--muted)}
+.demo-list li{padding:6px 0 6px 18px;position:relative;line-height:1.4}
+.demo-list li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,var(--violet),var(--azure))}
+.calc{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;margin-top:22px;border:1px solid var(--line);border-radius:20px;background:var(--panel);padding:24px}
+.calc h3{font-size:18px;margin-bottom:12px}
+.calc label{display:block;font-size:14px;color:var(--muted);margin-top:10px}
+.calc label output{float:right;color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+.calc input[type=range]{width:100%;margin:8px 0 4px;accent-color:var(--violet)}
+.calc-row{display:flex;gap:16px;flex-wrap:wrap}
+.calc-row label{flex:1;min-width:160px}
+.calc input[type=number]{width:70px;background:var(--bg);border:1px solid var(--line-2);color:var(--ink);border-radius:8px;padding:6px 8px;font:inherit;font-size:15px;margin:0 4px}
+.calc .small{font-size:12.5px;margin-top:12px}
+.calc-out{display:grid;gap:10px;align-content:start}
+.co{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.co b{font-size:26px;letter-spacing:-.02em;font-variant-numeric:tabular-nums;min-width:96px}
+.co span{font-size:14px;color:var(--ink)}
+.co small{display:block;font-size:12.5px;color:var(--dim);margin-top:2px;line-height:1.35}
+.compare{margin-top:22px;border:1px solid var(--line);border-radius:14px;background:var(--panel)}
+.compare summary{cursor:pointer;padding:14px 18px;font-weight:600;list-style:none}
+.compare summary::-webkit-details-marker{display:none}
+.compare summary:before{content:"+";display:inline-block;width:20px;color:var(--dim)}
+.compare[open] summary:before{content:"\2212"}
+.table-wrap{overflow-x:auto;padding:0 10px 10px}
+.compare table{width:100%;border-collapse:collapse;font-size:14px;min-width:560px}
+.compare th,.compare td{text-align:left;padding:10px 8px;border-top:1px solid var(--line);vertical-align:top}
+.compare th{font-size:15px;border-top:0}
+.compare td:first-child{color:var(--muted)}
+.compare .hl{background:rgba(139,92,246,.08)}
 .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
 .tier{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:28px 26px;display:flex;flex-direction:column}
 .tier.featured{border-color:var(--violet);box-shadow:0 0 0 1px var(--violet),0 24px 60px rgba(139,92,246,.18)}
@@ -249,7 +282,7 @@ footer .co{margin-right:auto}
   .hero .wrap{grid-template-columns:1fr;gap:40px}
   .hero h1{max-width:none}
   .phone-wrap{justify-self:center}
-  .ledger,.steps,.two,.price,.tiers{grid-template-columns:1fr}
+  .ledger,.steps,.two,.price,.tiers,.calc{grid-template-columns:1fr}
   .two.flip .shot{order:0}
   .trust .wrap{grid-template-columns:1fr 1fr}
   nav .links a.hide{display:none}
@@ -288,6 +321,7 @@ footer .co{margin-right:auto}
     <a href="#live"><b>What it handles</b><span>Handled for you vs. comes to you</span></a>
     <a href="#why"><b>Why it matters</b><span>The TikTok rules it protects</span></a>
     <a href="#guard"><b>Why denials hold up</b><span>Five safeguards</span></a>
+    <a href="/safety"><b>Is it safe for my shop?</b><span>Permissions, limits, how to revoke</span></a>
     <a href="#how"><b>How it works</b><span>Connect, set rules, decide</span></a>
     <a href="#pricing"><b>Pricing</b><span>Basic, Pro, Expert &middot; annual saves 20%</span></a>
     <a href="#faq"><b>FAQ</b><span>Questions sellers ask</span></a>
@@ -301,8 +335,9 @@ footer .co{margin-right:auto}
 
 <header class="hero"><div class="wrap">
   <div>
-    <span class="pill"><i></i>In TikTok's app review &middot; free during beta</span>
-    <h1>Returns and buyer messages, handled while you're live.</h1>
+    <span class="pill"><i></i>In TikTok's review &middot; join the list, free during beta</span>
+    <h1 id="h1" data-a="Returns and buyer messages, handled while you're live." data-b="&ldquo;I changed my mind&rdquo; is not a return reason.">Returns and buyer messages, handled while you're live.</h1>
+    <script>(function(){try{var v=localStorage.getItem('fs_var');if(!v){v=Math.random()<.5?'A':'B';localStorage.setItem('fs_var',v)}window.__fsVar=v;if(v==='B'){var h=document.getElementById('h1');h.innerHTML=h.getAttribute('data-b')}}catch(e){window.__fsVar='A'}})()</script>
     <p class="lead">FinalSale connects to your TikTok Shop. Change-of-mind returns and cancel asks are denied under final-sale rules with TikTok's own reason code. The only claims it won't touch &mdash; damaged, defective, wrong or missing item, not received &mdash; land on your phone with the buyer's photos for a one-tap decision.</p>
     <div class="join" id="join" data-join="hero">
       <form novalidate>
@@ -317,6 +352,12 @@ footer .co{margin-right:auto}
   <div class="phone-wrap" id="demo-sec">
     <div class="phone demo"><div class="notch"></div><div class="screen"><video id="demo" poster="/img/demo-poster.jpg?v=2" width="780" height="1688" autoplay muted loop playsinline preload="metadata" aria-label="45-second demo of the FinalSale app: automatic denials in Activity, a damaged-item claim with photos and tracking, a not-received claim denied with a drafted reply, the settings switches, and the overview"><source src="/img/demo.mp4?v=2" type="video/mp4"><source src="/img/demo.webm?v=2" type="video/webm"></video></div></div>
     <p class="demo-cap">The real app, 45 seconds. <button type="button" id="demo-restart">Replay</button></p>
+    <ul class="demo-list" aria-label="What the demo shows">
+      <li>Change-of-mind returns denied in seconds, with TikTok's reason code</li>
+      <li>A damaged claim: buyer's photos, order, tracking, TikTok's clock &mdash; one tap to refund</li>
+      <li>"Never got it" but USPS says delivered: pick why, the reply is drafted</li>
+      <li>Settings are plain switches; the Overview shows refunds denied and upheld rate</li>
+    </ul>
   </div>
 </div></header>
 
@@ -389,6 +430,7 @@ footer .co{margin-right:auto}
         <li><b>It learns from TikTok's rulings.</b> Every denial is followed up: upheld, or overturned on appeal. The reason codes that hold up win next time, across every FinalSale shop, and your upheld rate is on your Overview.</li>
         <li><b>A circuit breaker.</b> If TikTok overturns 15% of a shop's recent denials, FinalSale switches that shop to review mode on its own and tells you &mdash; before TikTok's 20% threshold, never after.</li>
       </ul>
+      <p class="note" style="margin-top:14px"><a href="/safety">Is it safe for my shop? Permissions, hard limits, and how to revoke &rarr;</a></p>
     </div>
     <div class="shot"><div class="phone short"><div class="notch"></div><div class="screen"><img src="/img/settings.png?v=3" width="780" height="1160" alt="The Settings screen: review mode banner, Pause everything, Deny returns under final sale, Deny cancel requests after the auction" loading="lazy"></div></div></div>
   </div>
@@ -426,6 +468,23 @@ footer .co{margin-right:auto}
   <h2>Pricing</h2>
   <p class="kicker">Free while we're in beta. After that, three plans sized by how much you sell. Every plan includes everything: deny-by-default returns, replies in your voice, AI replies, phone notifications, and the learning that gets better with every denial.</p>
   <div class="beta-bar"><b>Free during beta, no card needed.</b> You'll hear by email before anything is ever charged.</div>
+  <div class="calc" id="calc">
+    <div class="calc-in">
+      <h3>What would it be worth to you?</h3>
+      <label>Orders a month <output id="c-orders-out">3,000</output></label>
+      <input type="range" id="c-orders" min="200" max="75000" step="100" value="3000" aria-label="Orders a month">
+      <div class="calc-row">
+        <label>Return requests, % of orders <input type="number" id="c-rate" min="0" max="30" step="0.5" value="2" inputmode="decimal"></label>
+        <label>Average order, $ <input type="number" id="c-avg" min="1" max="5000" step="1" value="25" inputmode="numeric"></label>
+      </div>
+      <p class="muted small">Starting values are an estimate; put in your own from Seller Center &rarr; Orders and After-sales.</p>
+    </div>
+    <div class="calc-out">
+      <div class="co"><b id="c-saved">$1,500</b><span>of refunds denied a month<small>change-of-mind, wrong size, found it cheaper, "doesn't meet expectations"</small></span></div>
+      <div class="co"><b id="c-hours">4 hrs</b><span>you don't spend on returns<small>about 4 minutes per request, by hand in Seller Center</small></span></div>
+      <div class="co"><b id="c-plan">Pro</b><span>fits your volume<small id="c-plan-note">$299 a month &middot; $239 billed annually</small></span></div>
+    </div>
+  </div>
   <div class="billing-toggle" role="group" aria-label="Billing period">
     <button type="button" class="on" data-interval="month" aria-pressed="true">Monthly</button>
     <button type="button" data-interval="year" aria-pressed="false">Annual <span class="save">save 20%</span></button>
@@ -474,6 +533,27 @@ footer .co{margin-right:auto}
       <p class="pays"><b>Worked example:</b> 75,000 orders, 2% become return requests, $25 average order &rarr; about <b>$37,500</b> of refunds denied a month.</p>
     </div>
   </div>
+  <details class="compare" id="compare">
+    <summary>Compare plans side by side</summary>
+    <div class="table-wrap"><table>
+      <thead><tr><th></th><th>Basic</th><th class="hl">Pro</th><th>Expert</th></tr></thead>
+      <tbody>
+        <tr><td>Monthly / annual</td><td>$99 / $79</td><td class="hl">$299 / $239</td><td>$799 / $639</td></tr>
+        <tr><td>Orders a month</td><td>Up to 2,500</td><td class="hl">Up to 15,000</td><td>Up to 75,000</td></tr>
+        <tr><td>AI credits a month</td><td>1,000</td><td class="hl">6,000</td><td>25,000</td></tr>
+        <tr><td>Return &amp; cancel decisions</td><td>Unlimited</td><td class="hl">Unlimited</td><td>Unlimited</td></tr>
+        <tr><td>TikTok Shops</td><td>1</td><td class="hl">3</td><td>10</td></tr>
+        <tr><td>Team members</td><td>2 phones</td><td class="hl">5</td><td>Unlimited</td></tr>
+        <tr><td>Stored replies in your voice</td><td>&check;</td><td class="hl">&check;</td><td>&check;</td></tr>
+        <tr><td>Phone notifications, deadline reminders</td><td>&check;</td><td class="hl">&check;</td><td>&check;</td></tr>
+        <tr><td>Learning from TikTok's rulings, circuit breaker</td><td>&check;</td><td class="hl">&check;</td><td>&check;</td></tr>
+        <tr><td>AI trained on your product notes</td><td>&mdash;</td><td class="hl">&check;</td><td>&check;</td></tr>
+        <tr><td>Exports</td><td>&mdash;</td><td class="hl">&check;</td><td>&check;</td></tr>
+        <tr><td>Custom rules written with you</td><td>&mdash;</td><td class="hl">&mdash;</td><td>&check;</td></tr>
+        <tr><td>Support</td><td>Email</td><td class="hl">Priority</td><td>Onboarding call, same-day</td></tr>
+      </tbody>
+    </table></div>
+  </details>
   <p class="fine">The examples are illustrative math, not customer data &mdash; FinalSale is in beta and we'll publish real upheld rates and refund figures from live shops as soon as we have them. Your return-request rate and average order decide your number; the app shows it to you on the Overview. Pay monthly, or annually at 20% off. Discount codes go in at checkout. Credits reset monthly; run out and stored replies take over, so nothing goes unanswered. Top up any time at 1,000 for $29, 5,000 for $99 or 20,000 for $399. Over 75,000 orders a month? <a href="mailto:hello@finalsale.app">Talk to us</a> about Enterprise.</p>
   <div class="price-cta"><a class="btn primary" href="#final-join">Get early access</a><span class="muted">Questions first? <a href="mailto:hello@finalsale.app">hello@finalsale.app</a></span></div>
 </div></section>
@@ -509,12 +589,58 @@ footer .co{margin-right:auto}
 <footer><div class="wrap">
   <span class="co">© 2026 Ballin Brothers LLC, Milwaukee, WI</span>
   <a href="/support">Support</a>
+  <a href="/safety">Safety</a>
   <a href="/privacy">Privacy Policy</a>
   <a href="/terms">Terms of Service</a>
   <a href="/refunds">Refund Policy</a>
   <a href="mailto:support@finalsale.app">support@finalsale.app</a>
 </div></footer>
 
+<script>
+(function(){
+  var o=document.getElementById('c-orders'),rate=document.getElementById('c-rate'),avg=document.getElementById('c-avg');
+  if(!o)return;
+  var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-US')};
+  var used=false;
+  function run(){
+    var orders=+o.value,r=Math.max(0,+rate.value||0)/100,a=Math.max(0,+avg.value||0);
+    var req=orders*r,saved=req*a,hrs=req*4/60;
+    document.getElementById('c-orders-out').textContent=orders.toLocaleString('en-US');
+    document.getElementById('c-saved').textContent=fmt(saved);
+    document.getElementById('c-hours').textContent=(hrs<1?Math.round(hrs*60)+' min':Math.round(hrs)+' hrs');
+    var plan=orders<=2500?['Basic','$99 a month \u00b7 $79 billed annually']:orders<=15000?['Pro','$299 a month \u00b7 $239 billed annually']:['Expert','$799 a month \u00b7 $639 billed annually'];
+    document.getElementById('c-plan').textContent=plan[0];document.getElementById('c-plan-note').textContent=plan[1];
+  }
+  [o,rate,avg].forEach(function(el){el.addEventListener('input',function(){run();if(!used){used=true;if(window.fsTrack)fsTrack('calc')}})});
+  run();
+})();
+</script>
+<script>
+(function(){
+  var API='https://app.finalsale.app/api/site/event';
+  var q=new URLSearchParams(location.search),ref=q.get('ref')||q.get('utm_source')||'';
+  try{if(ref)sessionStorage.setItem('fs_ref',ref.slice(0,40));else ref=sessionStorage.getItem('fs_ref')||''}catch(e){}
+  window.fsRef=ref;
+  var v=window.__fsVar||'A',dev=innerWidth<860?'mobile':'desktop';
+  function send(event,detail){
+    var body=JSON.stringify({event:event,path:location.pathname,ref:ref||null,variant:v,detail:detail||null,device:dev});
+    try{if(navigator.sendBeacon&&navigator.sendBeacon(API,new Blob([body],{type:'text/plain'})))return}catch(e){}
+    try{fetch(API,{method:'POST',body:body,headers:{'content-type':'text/plain'},keepalive:true,mode:'cors'}).catch(function(){})}catch(e){}
+  }
+  window.fsTrack=send;
+  send('pageview');
+  if('IntersectionObserver' in window){
+    var seen={};
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!seen[e.target.id]){seen[e.target.id]=1;send('section',e.target.id)}})},{threshold:.3});
+    ['live','why','guard','how','pricing','faq','final-join'].forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el)});
+  }
+  var vid=document.getElementById('demo'),half=false;
+  if(vid)vid.addEventListener('timeupdate',function(){if(!half&&vid.duration&&vid.currentTime>vid.duration/2){half=true;send('demo','half')}});
+  document.querySelectorAll('.billing-toggle button').forEach(function(b){b.addEventListener('click',function(){send('toggle_annual',b.dataset.interval)})});
+  document.querySelectorAll('a.btn.primary[href^="#"]').forEach(function(a){a.addEventListener('click',function(){send('cta',(a.closest('nav')?'nav':a.closest('.drawer')?'menu':a.closest('#pricing')?'pricing':'page')+':'+a.getAttribute('href').slice(1))})});
+  var cmp=document.getElementById('compare');if(cmp)cmp.addEventListener('toggle',function(){if(cmp.open)send('cta','compare-plans')});
+})();
+</script>
 <script>
 (() => {
   const API = "https://app.finalsale.app/api/waitlist";
@@ -532,7 +658,8 @@ footer .co{margin-right:auto}
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { msg.textContent = "Enter the email you use for your shop."; msg.className = "msg err"; form.email.focus(); return; }
       const btn = form.querySelector("button"); btn.disabled = true; btn.textContent = "Adding you…";
       try {
-        const r = await post({ email, website: form.website.value, source });
+        const r = await post({ email, website: form.website.value, source, ref: window.fsRef || undefined });
+        if (window.fsTrack) fsTrack("signup", source);
         box.innerHTML = `<div class="done"><b><i>✓</i>${r.already ? "You're already on the list." : "You're on the list."}</b><p>Check <span style="color:var(--ink)">${esc(email)}</span> for a confirmation. Want to help us prioritize? Two optional questions:</p>
           <form class="more" novalidate>
             <input type="text" name="shop_name" placeholder="Your TikTok Shop name" maxlength="80" autocomplete="organization">
