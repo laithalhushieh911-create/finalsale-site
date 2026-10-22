@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="canonical" href="https://finalsale.app/safety">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Is FinalSale safe for my TikTok Shop? · FinalSale</title>
+<meta name="description" content="What FinalSale can and cannot do on your TikTok Shop: the exact API permissions, the hard limits on automation, how denials stay inside TikTok's rules, and how to pause or revoke access in one tap.">
+<style>
+:root{--bg:#0B0B12;--card:#15141F;--line:#262436;--ink:#F3F2FA;--muted:#A3A0B8;--purple:#8B5CF6;--blue:#3B82F6}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{padding:28px 20px;border-bottom:1px solid var(--line)}
+.wrap{max-width:820px;margin:0 auto;padding:0 20px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);font-weight:700;font-size:20px}
+.brand span{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--purple),var(--blue));display:inline-block}
+main{padding:40px 0 80px}
+h1{font-size:34px;margin:0 0 6px;letter-spacing:-.5px}
+.meta{color:var(--muted);margin-bottom:32px}
+h2{font-size:20px;margin:36px 0 10px}
+p,li{color:#D6D3E6}
+ul{padding-left:22px}
+a{color:#C4B5FD}
+table{width:100%;border-collapse:collapse;font-size:15px;margin:14px 0}th,td{text-align:left;padding:10px 8px;border-top:1px solid var(--line);vertical-align:top}th{color:var(--muted);font-weight:600;border-top:0}.ok{color:#6EE7B7}.no{color:#FCA5A5}.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:20px 0}
+footer{border-top:1px solid var(--line);padding:24px 20px;color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="brand" href="/"><span></span>FinalSale</a></div></header>
+<main><div class="wrap">
+<h1>Is FinalSale safe for my shop?</h1>
+<p class="meta">Everything it can do, everything it can't, and how to turn it off. Written for the seller who is rightly nervous about letting software touch their TikTok Shop.</p>
+
+<h2>1. How it connects</h2>
+<p>FinalSale is a registered TikTok Shop developer app that talks to your shop through TikTok's official Partner API. You authorize it on TikTok's own screen, the same way you'd authorize any seller tool, and TikTok issues it a token for your shop. There is no password, no screen-scraping, no browser extension, and no shared login: FinalSale never sees your TikTok credentials, and every action it takes is one TikTok lets a seller take by hand in Seller Center.</p>
+
+<h2>2. The permissions it asks for, and what each is used for</h2>
+<table>
+<tr><th>Permission</th><th>What FinalSale does with it</th><th>What it never does</th></tr>
+<tr><td>Returns &amp; refunds</td><td>Reads new return requests, approves or rejects them with TikTok's reason codes, and later checks what TikTok decided on appeal.</td><td>Never issues a refund you didn't approve. Never denies a damaged, defective, wrong-item, missing-item or not-received claim.</td></tr>
+<tr><td>Cancellations</td><td>Reads buyer cancel requests and declines post-auction ones with the final-sale reason (if you leave that switch on).</td><td>Never cancels an order on your behalf.</td></tr>
+<tr><td>Orders</td><td>Looks up the order behind a request: items, amount, tracking number, delivery status, so the card on your phone has everything.</td><td>Never edits, ships, or changes an order. Never exports your order list anywhere.</td></tr>
+<tr><td>Buyer chat (customer service)</td><td>Reads buyer messages and sends replies in your tone for a short list of routine questions.</td><td>Never replies to disputes, chargeback language, damage, anger, or anything it isn't sure about: those are drafted and wait for you.</td></tr>
+</table>
+<p>That's the whole list. FinalSale does not ask for product, inventory, pricing, promotion, finance or settlement permissions, because it doesn't need them.</p>
+
+<h2>3. Hard limits, not settings</h2>
+<p>Some things the software cannot do no matter how it's configured:</p>
+<ul>
+<li><strong>Deny one of the five real claims.</strong> Damaged, defective, wrong item, missing items, not received: always a person. Photos attached to another reason don't change the reason.</li>
+<li><strong>Promise money.</strong> Replies never say a refund is coming. Only your tap approves one.</li>
+<li><strong>Guess at a reason it doesn't recognize.</strong> A TikTok reason code FinalSale hasn't seen goes to your phone like a claim.</li>
+<li><strong>Act in review mode or while paused.</strong> Your first 24 hours are review mode: everything is drafted, nothing is sent until you approve it. Pause stops all automation in one tap and keeps collecting requests for you.</li>
+</ul>
+
+<h2>4. Staying inside TikTok's rules</h2>
+<p>TikTok measures sellers on an Invalid Seller Rejection Rate; at 20% over a rolling 8 weeks it warns the shop and moves after-sales requests to platform review. FinalSale is built to stay far from that line:</p>
+<ul>
+<li>Every rejection uses one of TikTok's own reason codes for that specific request, never a made-up or generic one.</li>
+<li>It follows up on every denial to learn whether TikTok upheld or overturned it, and prefers the reasons that hold up.</li>
+<li><strong>Circuit breaker:</strong> if 15% of a shop's recent denials (10 or more decided) are overturned, FinalSale switches that shop to review mode on its own and notifies the seller. It stops itself before TikTok's threshold, never after.</li>
+<li>Your own upheld rate is on your Overview screen at all times, next to TikTok's 20% line.</li>
+</ul>
+
+<h2>5. Your data</h2>
+<ul>
+<li>Your TikTok access token is encrypted at rest with a key that lives only on the server. Keys are rotated; old tokens are re-encrypted, never left in the clear.</li>
+<li>Buyer messages and request details are stored so you can see what happened and so the learning works. They are never sold, shared, or used for anything but running your shop's automation.</li>
+<li>The marketing site keeps its own count of visitors without cookies or any third-party tracker; a visitor is counted once a day and can't be followed across days.</li>
+<li>Full details: <a href="/privacy">Privacy Policy</a>.</li>
+</ul>
+
+<h2>6. Turning it off</h2>
+<div class="card">
+<p style="margin:0 0 8px"><strong>Pause</strong> &mdash; Settings &rarr; Pause everything. Automation stops instantly; requests still show up for you.</p>
+<p style="margin:0 0 8px"><strong>Disconnect</strong> &mdash; Settings &rarr; Disconnect this shop. FinalSale's token for your shop is deleted and nothing further happens. Reconnect any time.</p>
+<p style="margin:0"><strong>Revoke from TikTok's side</strong> &mdash; Seller Center &rarr; Account &rarr; Authorized apps (or Services Marketplace &rarr; My services) &rarr; FinalSale &rarr; Remove. TikTok invalidates the token itself.</p>
+</div>
+
+<h2>7. Who's behind it</h2>
+<p>FinalSale is made by Ballin Brothers LLC, a Wisconsin company run by a TikTok Shop live seller, and is in TikTok's app review now. Questions, or something here you want to see proof of: <a href="mailto:hello@finalsale.app">hello@finalsale.app</a>.</p>
+<p><a href="/">&larr; Back to finalsale.app</a></p>
+</div></main>
+<footer><div class="wrap">© 2026 Ballin Brothers LLC · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/refunds">Refunds</a> · <a href="/support">Support</a></div></footer>
+</body>
+</html>
