@@ -238,8 +238,9 @@ nav .links a.btn.primary{color:#fff}
 .compare th{font-size:15px;border-top:0}
 .compare td:first-child{color:var(--muted)}
 .compare .hl{background:rgba(139,92,246,.08)}
-.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
-.tier{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:28px 26px;display:flex;flex-direction:column}
+.tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:20px}
+@media (max-width:1100px){.tiers{grid-template-columns:1fr 1fr}}
+.tier{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:26px 22px;display:flex;flex-direction:column}
 .tier.featured{border-color:var(--violet);box-shadow:0 0 0 1px var(--violet),0 24px 60px rgba(139,92,246,.18)}
 .tier .name{font-weight:600;font-size:17px;display:flex;align-items:center;gap:10px}
 .tier .tag{font-size:12px;font-weight:600;color:#fff;background:var(--violet);border-radius:999px;padding:3px 9px}
@@ -249,7 +250,7 @@ nav .links a.btn.primary{color:#fff}
 .billing-toggle .save{display:inline-block;margin-left:6px;font-size:12px;padding:2px 7px;border-radius:999px;background:rgba(52,211,153,.15);color:#34d399;font-weight:600}
 .billing-toggle button.on .save{background:rgba(255,255,255,.2);color:#fff}
 .tier .billed{color:var(--muted);font-size:13px;margin-top:6px}
-.tier .amt{font-size:40px;font-weight:600;letter-spacing:-.03em;line-height:1;margin-top:14px}
+.tier .amt{font-size:36px;font-weight:600;letter-spacing:-.03em;line-height:1;margin-top:14px}
 .tier .amt small{font-size:15px;color:var(--muted);font-weight:500;letter-spacing:0;margin-left:4px}
 .tier .fit{font-size:14px;color:var(--muted);margin-top:8px;padding-bottom:16px;border-bottom:1px solid var(--line)}
 .tier ul{margin:16px 0 0;padding-left:18px;color:var(--muted);font-size:15px;flex:1}
@@ -331,7 +332,7 @@ footer .co{margin-right:auto}
     <a href="#guard"><b>Why denials hold up</b><span>Six safeguards</span></a>
     <a href="/safety"><b>Is it safe for my shop?</b><span>Permissions, limits, how to revoke</span></a>
     <a href="#how"><b>How it works</b><span>Connect, set rules, decide</span></a>
-    <a href="#pricing"><b>Pricing</b><span>Basic, Pro, Expert &middot; annual saves 20%</span></a>
+    <a href="#pricing"><b>Pricing</b><span>Starter, Basic, Pro, Expert &middot; annual saves 20%</span></a>
     <a href="#faq"><b>FAQ</b><span>Questions sellers ask</span></a>
   </nav>
   <div class="drawer-foot">
@@ -523,6 +524,20 @@ footer .co{margin-right:auto}
   </div>
   <div class="tiers">
     <div class="tier">
+      <div class="name">Starter <span class="tag" style="background:var(--line);color:var(--text)">New sellers</span></div>
+      <div class="amt"><span data-month="$49" data-year="$39">$49</span><small>/month</small></div>
+      <div class="billed" hidden>Billed $468 a year &mdash; $120 less than monthly</div>
+      <div class="fit">Up to 800 orders a month</div>
+      <ul>
+        <li><b>400 AI credits</b> a month (1 credit = 1 AI-written reply)</li>
+        <li>Unlimited return and cancel decisions</li>
+        <li>1 TikTok Shop, 1 phone</li>
+        <li>Stored replies in your voice, unlimited</li>
+        <li>Every safeguard the big plans have</li>
+      </ul>
+      <p class="pays"><b>Worked example:</b> 800 orders, 2% become return requests, $25 average order &rarr; about <b>$400</b> of refunds denied a month.</p>
+    </div>
+    <div class="tier">
       <div class="name">Basic</div>
       <div class="amt"><span data-month="$99" data-year="$79">$99</span><small>/month</small></div>
       <div class="billed" hidden>Billed $948 a year &mdash; $240 less than monthly</div>
@@ -568,22 +583,22 @@ footer .co{margin-right:auto}
   <details class="compare" id="compare">
     <summary>Compare plans side by side</summary>
     <div class="table-wrap"><table>
-      <thead><tr><th></th><th>Basic</th><th class="hl">Pro</th><th>Expert</th></tr></thead>
+      <thead><tr><th></th><th>Starter</th><th>Basic</th><th class="hl">Pro</th><th>Expert</th></tr></thead>
       <tbody>
-        <tr><td>Monthly / annual</td><td>$99 / $79</td><td class="hl">$299 / $239</td><td>$799 / $639</td></tr>
-        <tr><td>Orders a month</td><td>Up to 2,500</td><td class="hl">Up to 15,000</td><td>Up to 75,000</td></tr>
-        <tr><td>AI credits a month</td><td>1,000</td><td class="hl">6,000</td><td>25,000</td></tr>
-        <tr><td>Return &amp; cancel decisions</td><td>Unlimited</td><td class="hl">Unlimited</td><td>Unlimited</td></tr>
-        <tr><td>TikTok Shops</td><td>1</td><td class="hl">3</td><td>10</td></tr>
-        <tr><td>Team members</td><td>2 phones</td><td class="hl">5</td><td>Unlimited</td></tr>
-        <tr><td>Stored replies in your voice</td><td>&check;</td><td class="hl">&check;</td><td>&check;</td></tr>
-        <tr><td>Post-delivery thank-you &amp; review ask</td><td>&check;</td><td class="hl">&check;</td><td>&check;</td></tr>
-        <tr><td>Phone notifications, deadline reminders</td><td>&check;</td><td class="hl">&check;</td><td>&check;</td></tr>
-        <tr><td>Learning from TikTok's rulings, circuit breaker</td><td>&check;</td><td class="hl">&check;</td><td>&check;</td></tr>
-        <tr><td>AI trained on your product notes</td><td>&mdash;</td><td class="hl">&check;</td><td>&check;</td></tr>
-        <tr><td>Exports</td><td>&mdash;</td><td class="hl">&check;</td><td>&check;</td></tr>
-        <tr><td>Custom rules written with you</td><td>&mdash;</td><td class="hl">&mdash;</td><td>&check;</td></tr>
-        <tr><td>Support</td><td>Email</td><td class="hl">Priority</td><td>Onboarding call, same-day</td></tr>
+        <tr><td>Monthly / annual</td><td>$49 / $39</td><td>$99 / $79</td><td class="hl">$299 / $239</td><td>$799 / $639</td></tr>
+        <tr><td>Orders a month</td><td>Up to 800</td><td>Up to 2,500</td><td class="hl">Up to 15,000</td><td>Up to 75,000</td></tr>
+        <tr><td>AI credits a month</td><td>400</td><td>1,000</td><td class="hl">6,000</td><td>25,000</td></tr>
+        <tr><td>Return &amp; cancel decisions</td><td>Unlimited</td><td>Unlimited</td><td class="hl">Unlimited</td><td>Unlimited</td></tr>
+        <tr><td>TikTok Shops</td><td>1</td><td>1</td><td class="hl">3</td><td>10</td></tr>
+        <tr><td>Team members</td><td>1 phone</td><td>2 phones</td><td class="hl">5</td><td>Unlimited</td></tr>
+        <tr><td>Stored replies in your voice</td><td>&check;</td><td>&check;</td><td class="hl">&check;</td><td>&check;</td></tr>
+        <tr><td>Post-delivery thank-you &amp; review ask</td><td>&check;</td><td>&check;</td><td class="hl">&check;</td><td>&check;</td></tr>
+        <tr><td>Phone notifications, deadline reminders</td><td>&check;</td><td>&check;</td><td class="hl">&check;</td><td>&check;</td></tr>
+        <tr><td>Learning from TikTok's rulings, circuit breaker</td><td>&check;</td><td>&check;</td><td class="hl">&check;</td><td>&check;</td></tr>
+        <tr><td>AI trained on your product notes</td><td>&mdash;</td><td>&mdash;</td><td class="hl">&check;</td><td>&check;</td></tr>
+        <tr><td>Exports</td><td>&mdash;</td><td>&mdash;</td><td class="hl">&check;</td><td>&check;</td></tr>
+        <tr><td>Custom rules written with you</td><td>&mdash;</td><td>&mdash;</td><td class="hl">&mdash;</td><td>&check;</td></tr>
+        <tr><td>Support</td><td>Email</td><td>Email</td><td class="hl">Priority</td><td>Onboarding call, same-day</td></tr>
       </tbody>
     </table></div>
   </details>
@@ -601,7 +616,7 @@ footer .co{margin-right:auto}
     <details><summary>Does it ask buyers for reviews?</summary><p>Yes, once per order, about two hours after the carrier marks it delivered: a thank-you in your tone with the buyer's name and item, "a review helps if you love it," and "message us first if anything's wrong." It never offers anything in exchange for a review (TikTok forbids that), never sends while a return or cancel request is open on the order, and you can reword it or switch it off in Settings.</p></details>
     <details><summary>Will it reply to things it shouldn't?</summary><p>It only answers a short list of routine intents: cancel asks, return questions, shipping status, ship time, and thank-yous. Dispute or chargeback language, damage, anger, or anything it isn't confident about is drafted and sent to you instead. Words you add to your escalation list always reach you. And for your first 24 hours, nothing is sent until you approve it.</p></details>
     <details><summary>Do I need to install an app from the App Store?</summary><p>No. FinalSale runs in your browser and installs to your Home Screen like any app: on iPhone, tap Share, then Add to Home Screen; on Android, use Install. Notifications work from then on.</p></details>
-    <details><summary>What does it cost, and what is an AI credit?</summary><p>Nothing during beta, no card needed. After launch: Basic $99, Pro $299, Expert $799 a month, or 20% less billed annually. An AI credit is one AI-written reply to a buyer; routine messages use your stored replies and cost nothing. Run out and stored replies take over; top up in a tap. Cancel anytime.</p></details>
+    <details><summary>What does it cost, and what is an AI credit?</summary><p>Nothing during beta, no card needed. After launch: Starter $49, Basic $99, Pro $299, Expert $799 a month, or 20% less billed annually. Starter is for sellers just getting going on lives (up to 800 orders a month); every plan has the same safeguards. An AI credit is one AI-written reply to a buyer; routine messages use your stored replies and cost nothing. Run out and stored replies take over; top up in a tap. Cancel anytime.</p></details>
     <details><summary>Can I turn it off?</summary><p>Any time. Pause stops all automation while still collecting requests for you. Disconnecting your shop stops everything and removes FinalSale's access; you can reconnect later.</p></details>
   </div>
 </div></section>
@@ -642,7 +657,7 @@ footer .co{margin-right:auto}
     document.getElementById('c-orders-out').textContent=orders.toLocaleString('en-US');
     document.getElementById('c-saved').textContent=fmt(saved);
     document.getElementById('c-hours').textContent=(hrs<1?Math.round(hrs*60)+' min':Math.round(hrs)+' hrs');
-    var plan=orders<=2500?['Basic','$99 a month \u00b7 $79 billed annually']:orders<=15000?['Pro','$299 a month \u00b7 $239 billed annually']:['Expert','$799 a month \u00b7 $639 billed annually'];
+    var plan=orders<=800?['Starter','$49 a month \u00b7 $39 billed annually']:orders<=2500?['Basic','$99 a month \u00b7 $79 billed annually']:orders<=15000?['Pro','$299 a month \u00b7 $239 billed annually']:['Expert','$799 a month \u00b7 $639 billed annually'];
     document.getElementById('c-plan').textContent=plan[0];document.getElementById('c-plan-note').textContent=plan[1];
   }
   [o,rate,avg].forEach(function(el){el.addEventListener('input',function(){run();if(!used){used=true;if(window.fsTrack)fsTrack('calc')}})});
