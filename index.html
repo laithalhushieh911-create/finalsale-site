@@ -88,6 +88,8 @@ nav .links a.btn.primary{color:#fff}
 .hero{padding:56px 0 40px}
 .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
 .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 12px 6px 8px;border:1px solid var(--line-2);border-radius:999px;font-size:13px;color:var(--muted);background:var(--panel);margin-bottom:22px}
+.pill.trial{display:inline-block;padding:7px 14px;line-height:1.45;border-color:rgba(139,92,246,.6);background:linear-gradient(90deg,rgba(139,92,246,.18),rgba(59,130,246,.12));color:var(--text)}
+.pill.trial b{color:#c4b5fd}
 .pill i{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px rgba(74,222,128,.18)}
 .hero h1{font-size:clamp(36px,5.4vw,58px);line-height:1.04;letter-spacing:-.03em;max-width:12ch}
 .hero .lead{font-size:19px;color:var(--muted);max-width:30em;margin-top:20px}
@@ -201,6 +203,7 @@ nav .links a.btn.primary{color:#fff}
 .price li{margin:4px 0}
 .price .after{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-size:15px;color:var(--muted)}
 .price .after b{color:var(--ink)}
+.trial-tag{display:inline-block;vertical-align:middle;margin-left:10px;font-size:13px;font-weight:600;letter-spacing:.02em;color:#fff;background:linear-gradient(90deg,var(--violet),var(--azure));border-radius:999px;padding:5px 12px;position:relative;top:-4px}
 .beta-bar{margin-top:28px;border:1px solid var(--line-2);background:linear-gradient(90deg,rgba(139,92,246,.16),rgba(59,130,246,.10));border-radius:14px;padding:14px 18px;font-size:15px;color:var(--muted)}
 .beta-bar b{color:var(--ink)}
 .chatdemo{width:340px;background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:16px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
@@ -317,7 +320,7 @@ footer .co{margin-right:auto}
     <a class="hide" href="#pricing">Pricing</a>
     <a class="hide" href="#faq">FAQ</a>
     <a class="hide" href="https://app.finalsale.app/app">Sign in</a>
-    <a class="btn sm primary" href="#join">Get early access</a>
+    <a class="btn sm primary" href="#join">Start free trial</a>
     <button class="menu-btn" type="button" aria-label="Open menu" aria-controls="drawer" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </div></nav>
@@ -336,7 +339,7 @@ footer .co{margin-right:auto}
     <a href="#faq"><b>FAQ</b><span>Questions sellers ask</span></a>
   </nav>
   <div class="drawer-foot">
-    <a class="btn primary" href="#final-join">Get early access</a>
+    <a class="btn primary" href="#final-join">Start free trial</a>
     <a class="btn" href="https://app.finalsale.app/app">Sign in</a>
     <a class="mail" href="mailto:hello@finalsale.app">hello@finalsale.app</a>
   </div>
@@ -344,7 +347,7 @@ footer .co{margin-right:auto}
 
 <header class="hero"><div class="wrap">
   <div>
-    <span class="pill"><i></i>In TikTok's review &middot; join the list, free during beta</span>
+    <span class="pill trial"><b>7-day free trial</b>&nbsp;on every plan &middot; from $49/mo &middot; cancel anytime</span>
     <h1 id="h1" data-a="Returns and buyer messages, handled while you're live." data-b="&ldquo;I changed my mind&rdquo; is not a return reason.">Returns and buyer messages, handled while you're live.</h1>
     <script>(function(){try{var v=localStorage.getItem('fs_var');if(!v){v=Math.random()<.5?'A':'B';localStorage.setItem('fs_var',v)}window.__fsVar=v;if(v==='B'){var h=document.getElementById('h1');h.innerHTML=h.getAttribute('data-b')}}catch(e){window.__fsVar='A'}})()</script>
     <p class="lead">FinalSale connects to your TikTok Shop. Change-of-mind returns and cancel asks are denied under final-sale rules with TikTok's own reason code. The only claims it won't touch &mdash; damaged, defective, wrong or missing item, not received &mdash; land on your phone with the buyer's photos for a one-tap decision.</p>
@@ -354,7 +357,7 @@ footer .co{margin-right:auto}
         <label class="hp" aria-hidden="true">Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
         <button class="btn primary" type="submit">Get early access</button>
       </form>
-      <p class="msg">You'll get one email the day TikTok's review clears. No spam, no card.</p>
+      <p class="msg">One email the day TikTok's review clears, then your first week is free. No spam.</p>
     </div>
     <p class="note">Already in the beta? <a href="https://app.finalsale.app/app" style="color:var(--muted)">Sign in</a>.</p>
   </div>
@@ -498,9 +501,9 @@ footer .co{margin-right:auto}
 </div></section>
 
 <section id="pricing"><div class="wrap">
-  <h2>Pricing</h2>
-  <p class="kicker">Free while we're in beta. After that, three plans sized by how much you sell. Every plan includes everything: deny-by-default returns, replies in your voice, AI replies, phone notifications, and the learning that gets better with every denial.</p>
-  <div class="beta-bar"><b>Free during beta, no card needed.</b> At launch every plan starts with a <b>7-day free trial</b>, and you'll hear by email before anything is ever charged.</div>
+  <h2>Pricing <span class="trial-tag">7 days free</span></h2>
+  <p class="kicker">Four plans sized by how much you sell, and every one starts with a free week. Every plan includes everything: deny-by-default returns, replies in your voice, AI replies, phone notifications, the Monday money report, and the learning that gets better with every denial.</p>
+  <div class="beta-bar"><b>Try any plan free for 7 days.</b> Card at checkout, nothing charged until day 8, cancel anytime before. Free during beta with no card at all &mdash; you'll hear by email before anything is ever charged.</div>
   <div class="calc" id="calc">
     <div class="calc-in">
       <h3>What would it be worth to you?</h3>
@@ -604,7 +607,7 @@ footer .co{margin-right:auto}
     </table></div>
   </details>
   <p class="fine">The examples are illustrative math, not customer data &mdash; FinalSale is in beta and we'll publish real upheld rates and refund figures from live shops as soon as we have them. Your return-request rate and average order decide your number; the app shows it to you on the Overview. Pay monthly, or annually at 20% off. Discount codes go in at checkout. Credits reset monthly; run out and stored replies take over, so nothing goes unanswered. Top up any time at 1,000 for $29, 5,000 for $99 or 20,000 for $399. Over 75,000 orders a month? <a href="mailto:hello@finalsale.app">Talk to us</a> about Enterprise.</p>
-  <div class="price-cta"><a class="btn primary" href="#final-join">Get early access</a><span class="muted">Questions first? <a href="mailto:hello@finalsale.app">hello@finalsale.app</a></span></div>
+  <div class="price-cta"><a class="btn primary" href="#final-join">Start your free week</a><span class="muted">Questions first? <a href="mailto:hello@finalsale.app">hello@finalsale.app</a></span></div>
 </div></section>
 
 <section id="faq"><div class="wrap">
