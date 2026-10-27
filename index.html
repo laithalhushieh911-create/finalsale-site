@@ -27,7 +27,7 @@
 <meta name="twitter:description" content="For TikTok Shop live-auction sellers. Routine messages answered, every return denied under final-sale rules, damage and wrong-item claims on your phone in one tap.">
 <meta name="twitter:image" content="https://finalsale.app/img/og.png">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"SoftwareApplication","name":"FinalSale","applicationCategory":"BusinessApplication","operatingSystem":"Web, iOS (Home Screen app), Android","url":"https://finalsale.app/","description":"Customer-service and returns automation for TikTok Shop live-auction sellers: routine buyer messages answered in your voice, return and cancel requests denied under final-sale rules with TikTok reason codes, damaged, wrong or missing-item claims sent to your phone for a one-tap decision.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","description":"Free during beta"},"author":{"@type":"Organization","name":"Ballin Brothers LLC","email":"hello@finalsale.app"}}
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"FinalSale","applicationCategory":"BusinessApplication","operatingSystem":"Web, iOS (Home Screen app), Android","url":"https://finalsale.app/","description":"Customer-service and returns automation for TikTok Shop live-auction sellers: routine buyer messages answered in your voice, return and cancel requests denied under final-sale rules with TikTok reason codes, damaged, wrong or missing-item claims sent to your phone for a one-tap decision.","offers":{"@type":"Offer","price":"49","priceCurrency":"USD","description":"From $49/month, 7-day free trial"},"author":{"@type":"Organization","name":"Ballin Brothers LLC","email":"hello@finalsale.app"}}
 </script>
 <style>
 :root{--bg:#0B0B12;--panel:#15141F;--panel-2:#1C1B28;--line:#262436;--line-2:#353350;--ink:#F3F2FA;--muted:#A3A0B8;--dim:#6E6B85;--violet:#8B5CF6;--azure:#3B82F6;--ok:#4ADE80;--no:#F26D7D}
@@ -90,6 +90,12 @@ nav .links a.btn.primary{color:#fff}
 .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 12px 6px 8px;border:1px solid var(--line-2);border-radius:999px;font-size:13px;color:var(--muted);background:var(--panel);margin-bottom:22px}
 .pill.trial{display:inline-block;padding:7px 14px;line-height:1.45;border-color:rgba(139,92,246,.6);background:linear-gradient(90deg,rgba(139,92,246,.18),rgba(59,130,246,.12));color:var(--text)}
 .pill.trial b{color:#c4b5fd}
+.live{display:inline-flex;align-items:center;gap:8px;margin:0 0 14px;font-size:13px;font-weight:600;letter-spacing:.02em;color:#86efac}
+.live i{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,.18);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,197,94,.35)}70%{box-shadow:0 0 0 8px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.cta-row .btn{padding:14px 22px;font-size:16px}
+.cta-row+.msg,.cta-note{font-size:14px;color:var(--dim);margin-top:12px}
 .pill i{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px rgba(74,222,128,.18)}
 .hero h1{font-size:clamp(36px,5.4vw,58px);line-height:1.04;letter-spacing:-.03em;max-width:12ch}
 .hero .lead{font-size:19px;color:var(--muted);max-width:30em;margin-top:20px}
@@ -320,7 +326,7 @@ footer .co{margin-right:auto}
     <a class="hide" href="#pricing">Pricing</a>
     <a class="hide" href="#faq">FAQ</a>
     <a class="hide" href="https://app.finalsale.app/app">Sign in</a>
-    <a class="btn sm primary" href="#join">Start free trial</a>
+    <a class="btn sm primary" href="https://app.finalsale.app/app">Start free trial</a>
     <button class="menu-btn" type="button" aria-label="Open menu" aria-controls="drawer" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </div></nav>
@@ -339,7 +345,7 @@ footer .co{margin-right:auto}
     <a href="#faq"><b>FAQ</b><span>Questions sellers ask</span></a>
   </nav>
   <div class="drawer-foot">
-    <a class="btn primary" href="#final-join">Start free trial</a>
+    <a class="btn primary" href="https://app.finalsale.app/app">Start free trial</a>
     <a class="btn" href="https://app.finalsale.app/app">Sign in</a>
     <a class="mail" href="mailto:hello@finalsale.app">hello@finalsale.app</a>
   </div>
@@ -347,19 +353,17 @@ footer .co{margin-right:auto}
 
 <header class="hero"><div class="wrap">
   <div>
+    <div class="live"><i></i>Live in the TikTok Shop App &amp; Service market</div>
     <span class="pill trial"><b>7-day free trial</b>&nbsp;on every plan &middot; from $49/mo &middot; cancel anytime</span>
     <h1 id="h1" data-a="Returns and buyer messages, handled while you're live." data-b="&ldquo;I changed my mind&rdquo; is not a return reason.">Returns and buyer messages, handled while you're live.</h1>
     <script>(function(){try{var v=localStorage.getItem('fs_var');if(!v){v=Math.random()<.5?'A':'B';localStorage.setItem('fs_var',v)}window.__fsVar=v;if(v==='B'){var h=document.getElementById('h1');h.innerHTML=h.getAttribute('data-b')}}catch(e){window.__fsVar='A'}})()</script>
     <p class="lead">FinalSale connects to your TikTok Shop. Change-of-mind returns and cancel asks are denied under final-sale rules with TikTok's own reason code. The only claims it won't touch &mdash; damaged, defective, wrong or missing item, not received &mdash; land on your phone with the buyer's photos for a one-tap decision.</p>
-    <div class="join" id="join" data-join="hero">
-      <form novalidate>
-        <input type="email" name="email" placeholder="you@yourshop.com" autocomplete="email" inputmode="email" required aria-label="Your email">
-        <label class="hp" aria-hidden="true">Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
-        <button class="btn primary" type="submit">Get early access</button>
-      </form>
-      <p class="msg">One email the day TikTok's review clears, then your first week is free. No spam.</p>
+    <div class="cta-row" id="join">
+      <a class="btn primary" href="https://app.finalsale.app/app" data-cta="hero">Start free trial</a>
+      <a class="btn" href="#pricing">See pricing</a>
     </div>
-    <p class="note">Already in the beta? <a href="https://app.finalsale.app/app" style="color:var(--muted)">Sign in</a>.</p>
+    <p class="cta-note">Sign in with your email, connect your TikTok Shop, done in about two minutes. First 7 days free, then from $49/mo. Cancel anytime.</p>
+    <p class="note">Already have an account? <a href="https://app.finalsale.app/app" style="color:var(--muted)">Sign in</a>.</p>
   </div>
   <div class="phone-wrap" id="demo-sec">
     <div class="phone demo"><div class="notch"></div><div class="screen"><video id="demo" poster="/img/demo-poster.jpg?v=2" width="780" height="1688" autoplay muted loop playsinline preload="metadata" aria-label="45-second demo of the FinalSale app: automatic denials in Activity, a damaged-item claim with photos and tracking, a not-received claim denied with a drafted reply, the settings switches, and the overview"><source src="/img/demo.mp4?v=2" type="video/mp4"><source src="/img/demo.webm?v=2" type="video/webm"></video></div></div>
@@ -494,7 +498,7 @@ footer .co{margin-right:auto}
     <div>
       <p class="eyebrow">A note from the founder</p>
       <p>I sell on TikTok Live. The morning after a good night is the same queue every time: "can I cancel, I didn't mean to bid," "I changed my mind," "where's my package" &mdash; and buried in there, the one or two claims that actually matter, each with a 48-hour clock on it.</p>
-      <p>FinalSale handles that queue the way I handle it: auction wins are final sale, a broken item gets made right, and nothing with real money or a real complaint behind it goes out without a person looking at it. It goes on my own shop the day TikTok's review clears.</p>
+      <p>FinalSale handles that queue the way I handle it: auction wins are final sale, a broken item gets made right, and nothing with real money or a real complaint behind it goes out without a person looking at it. It runs on my own shop.</p>
       <p class="sig"><b>Laith</b><span>Founder, Ballin Brothers LLC &middot; <a href="mailto:hello@finalsale.app">hello@finalsale.app</a></span></p>
     </div>
   </div>
@@ -503,7 +507,7 @@ footer .co{margin-right:auto}
 <section id="pricing"><div class="wrap">
   <h2>Pricing <span class="trial-tag">7 days free</span></h2>
   <p class="kicker">Four plans sized by how much you sell, and every one starts with a free week. Every plan includes everything: deny-by-default returns, replies in your voice, AI replies, phone notifications, the Monday money report, and the learning that gets better with every denial.</p>
-  <div class="beta-bar"><b>Try any plan free for 7 days.</b> Card at checkout, nothing charged until day 8, cancel anytime before. Free during beta with no card at all &mdash; you'll hear by email before anything is ever charged.</div>
+  <div class="beta-bar"><b>Try any plan free for 7 days.</b> Card at checkout, nothing charged until day 8, cancel anytime before and you pay nothing.</div>
   <div class="calc" id="calc">
     <div class="calc-in">
       <h3>What would it be worth to you?</h3>
@@ -606,37 +610,33 @@ footer .co{margin-right:auto}
       </tbody>
     </table></div>
   </details>
-  <p class="fine">The examples are illustrative math, not customer data &mdash; FinalSale is in beta and we'll publish real upheld rates and refund figures from live shops as soon as we have them. Your return-request rate and average order decide your number; the app shows it to you on the Overview. Pay monthly, or annually at 20% off. Discount codes go in at checkout. Credits reset monthly; run out and stored replies take over, so nothing goes unanswered. Top up any time at 1,000 for $29, 5,000 for $99 or 20,000 for $399. Over 75,000 orders a month? <a href="mailto:hello@finalsale.app">Talk to us</a> about Enterprise.</p>
-  <div class="price-cta"><a class="btn primary" href="#final-join">Start your free week</a><span class="muted">Questions first? <a href="mailto:hello@finalsale.app">hello@finalsale.app</a></span></div>
+  <p class="fine">The examples are illustrative math, not customer data &mdash; we'll publish real upheld rates and refund figures from live shops as they come in. Your return-request rate and average order decide your number; the app shows it to you on the Overview. Pay monthly, or annually at 20% off. Discount codes go in at checkout. Credits reset monthly; run out and stored replies take over, so nothing goes unanswered. Top up any time at 1,000 for $29, 5,000 for $99 or 20,000 for $399. Over 75,000 orders a month? <a href="mailto:hello@finalsale.app">Talk to us</a> about Enterprise.</p>
+  <div class="price-cta"><a class="btn primary" href="https://app.finalsale.app/app">Start your free week</a><span class="muted">Questions first? <a href="mailto:hello@finalsale.app">hello@finalsale.app</a></span></div>
 </div></section>
 
 <section id="faq"><div class="wrap">
   <h2>Questions sellers ask</h2>
   <div class="faq">
-    <details><summary>When can I start?</summary><p>FinalSale is a TikTok Shop developer app, and TikTok is reviewing it now. Join the list and you'll get one email the day it clears, with a sign-in link. Connecting your shop takes about two minutes, and the first 24 hours run in review mode so you can watch before anything is sent.</p></details>
+    <details><summary>When can I start?</summary><p>Now. FinalSale is an approved TikTok Shop app, listed in the App &amp; Service market. Sign in with your email, tap Connect TikTok Shop, approve it on TikTok, and you're running &mdash; about two minutes. The first 24 hours run in review mode so you can watch it draft before anything is sent.</p></details>
     <details><summary>Is this allowed under TikTok Shop's rules?</summary><p>Yes. FinalSale works through the official TikTok Shop developer platform with permissions you grant explicitly. It applies TikTok's own policies: since June 2026 TikTok treats LIVE Auction, collectible and pre-owned orders as final sale for change-of-mind returns, so those can be declined with TikTok's reason codes, while claims for damaged, defective, wrong, missing or not-received items are always reviewed by you. Every decision is one TikTok lets a seller make by hand in Seller Center; FinalSale just makes it on time.</p></details>
     <details><summary>Which return requests does it deny?</summary><p>Change-of-mind ones: changed mind, wrong size, found it cheaper, ordered by mistake, "doesn't meet expectations" — with TikTok's own reason code. Everything that needs a judgment comes to you with the information ready: damaged, defective, wrong item, missing items, not received, and "it won't arrive in time" (with the shipment state). Those reach your phone with the buyer's photos. A "doesn't meet expectations" request gets TikTok's "lack of evidence" reason when there are no photos, and a final-sale denial with a note to refile as damaged or wrong item when there are. Anything with a reason code FinalSale doesn't recognize goes to you too.</p></details>
     <details><summary>What if TikTok starts overturning my denials?</summary><p>FinalSale follows up on every denial to see what TikTok did with it. If 15% of your recent denials are overturned, it switches your shop to review mode by itself and notifies you, so you're never near TikTok's 20% Invalid Seller Rejection threshold. Your upheld rate is on your Overview at all times.</p></details>
     <details><summary>Does it ask buyers for reviews?</summary><p>Yes, once per order, about two hours after the carrier marks it delivered: a thank-you in your tone with the buyer's name and item, "a review helps if you love it," and "message us first if anything's wrong." It never offers anything in exchange for a review (TikTok forbids that), never sends while a return or cancel request is open on the order, and you can reword it or switch it off in Settings.</p></details>
     <details><summary>Will it reply to things it shouldn't?</summary><p>It only answers a short list of routine intents: cancel asks, return questions, shipping status, ship time, and thank-yous. Dispute or chargeback language, damage, anger, or anything it isn't confident about is drafted and sent to you instead. Words you add to your escalation list always reach you. And for your first 24 hours, nothing is sent until you approve it.</p></details>
     <details><summary>Do I need to install an app from the App Store?</summary><p>No. FinalSale runs in your browser and installs to your Home Screen like any app: on iPhone, tap Share, then Add to Home Screen; on Android, use Install. Notifications work from then on.</p></details>
-    <details><summary>What does it cost, and what is an AI credit?</summary><p>Nothing during beta, no card needed. After launch, every plan starts with a 7-day free trial (cancel in the first week and you pay nothing), then Starter $49, Basic $99, Pro $299, Expert $799 a month, or 20% less billed annually. Starter is for sellers just getting going on lives (up to 800 orders a month); every plan has the same safeguards. An AI credit is one AI-written reply to a buyer; routine messages use your stored replies and cost nothing. Run out and stored replies take over; top up in a tap. Cancel anytime.</p></details>
+    <details><summary>What does it cost, and what is an AI credit?</summary><p>Every plan starts with a 7-day free trial (cancel in the first week and you pay nothing), then Starter $49, Basic $99, Pro $299, Expert $799 a month, or 20% less billed annually. Starter is for sellers just getting going on lives (up to 800 orders a month); every plan has the same safeguards. An AI credit is one AI-written reply to a buyer; routine messages use your stored replies and cost nothing. Run out and stored replies take over; top up in a tap. Cancel anytime.</p></details>
     <details><summary>Can I turn it off?</summary><p>Any time. Pause stops all automation while still collecting requests for you. Disconnecting your shop stops everything and removes FinalSale's access; you can reconnect later.</p></details>
   </div>
 </div></section>
 
 <section class="final" id="final-join"><div class="wrap">
-  <h2>Be first in when TikTok opens the door.</h2>
-  <p class="kicker">One email the day the review clears. Free during beta, no card.</p>
-  <div class="join center" data-join="footer">
-    <form novalidate>
-      <input type="email" name="email" placeholder="you@yourshop.com" autocomplete="email" inputmode="email" required aria-label="Your email">
-      <label class="hp" aria-hidden="true">Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
-      <button class="btn primary" type="submit">Get early access</button>
-    </form>
-    <p class="msg"></p>
+  <h2>Your next live is covered.</h2>
+  <p class="kicker">Connect your TikTok Shop in two minutes. 7 days free, then from $49/mo.</p>
+  <div class="cta-row" style="justify-content:center">
+    <a class="btn primary" href="https://app.finalsale.app/app" data-cta="footer">Start free trial</a>
+    <a class="btn" href="https://services.us.tiktokshop.com/open/authorize?service_id=7698276252075132685">Find us in the TikTok App market</a>
   </div>
-  <p class="alt">Already in the beta? <a href="https://app.finalsale.app/app">Sign in</a> &middot; Questions? <a href="mailto:hello@finalsale.app">hello@finalsale.app</a></p>
+  <p class="alt">Already have an account? <a href="https://app.finalsale.app/app">Sign in</a> &middot; Questions? <a href="mailto:hello@finalsale.app">hello@finalsale.app</a></p>
 </div></section>
 
 <footer><div class="wrap">
@@ -703,8 +703,10 @@ footer .co{margin-right:auto}
     if (!r.ok) throw new Error(j.error || "Something went wrong. Try again in a moment.");
     return j;
   });
+  document.querySelectorAll("[data-cta]").forEach((a) => a.addEventListener("click", () => { try { if (window.fsTrack) fsTrack("cta", a.dataset.cta); } catch {} }));
   document.querySelectorAll(".join").forEach((box) => {
     const form = box.querySelector("form"), msg = box.querySelector(".msg"), source = box.dataset.join;
+    if (!form) return;
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
       const email = form.email.value.trim();
