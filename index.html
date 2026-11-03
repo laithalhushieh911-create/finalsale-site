@@ -70,6 +70,14 @@ section{padding:72px 0}
 .drawer-foot .mail{text-align:center;font-size:14px;color:var(--muted);margin-top:6px}
 body.menu-open{overflow:hidden}
 
+.promo{background:linear-gradient(90deg,#6d4be0,#3b82f6);color:#fff;text-align:center;font-size:14px;font-weight:600;padding:9px 14px;line-height:1.4;position:relative;z-index:6}
+.promo .wrap{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;justify-content:center}
+.promo b{font-weight:800}
+.promo code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(255,255,255,.18);border:1px dashed rgba(255,255,255,.7);padding:2px 10px;border-radius:8px;letter-spacing:.08em;font-weight:800;cursor:pointer}
+.promo code:hover{background:rgba(255,255,255,.28)}
+.promo a{color:#fff;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+.promo .ok{font-weight:600;opacity:.95}
+@media(max-width:640px){.promo{font-size:13px;padding:8px 10px}.promo .hide-sm{display:none}}
 nav{position:sticky;top:0;z-index:5;background:rgba(11,11,18,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 nav .wrap{display:flex;align-items:center;gap:22px;height:64px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;font-size:18px;letter-spacing:-.02em}
@@ -318,6 +326,8 @@ footer .co{margin-right:auto}
 </style>
 </head>
 <body>
+<div class="promo" id="promo"><div class="wrap"><span>🎉 <b>Launch offer:</b> 50% off your first month <span class="hide-sm">at checkout </span>with code <code id="promo-code" title="Click to copy">LAUNCH50</code><span class="hide-sm"> &middot; still 7 days free first</span></span><a href="https://app.finalsale.app/app" data-cta="promo">Claim it &rarr;</a></div></div>
+<script>(function(){var c=document.getElementById('promo-code');if(!c)return;c.addEventListener('click',function(){try{navigator.clipboard.writeText('LAUNCH50');var o=c.textContent;c.textContent='Copied!';setTimeout(function(){c.textContent=o},1400)}catch(e){}})})()</script>
 <nav><div class="wrap">
   <a class="brand" href="/"><i></i>FinalSale</a>
   <div class="links">
@@ -351,7 +361,7 @@ footer .co{margin-right:auto}
 <header class="hero"><div class="wrap">
   <div>
     <div class="live"><i></i>Live in the TikTok Shop App &amp; Service market</div>
-    <span class="pill trial"><b>7-day free trial</b>&nbsp;on every plan &middot; from $49/mo &middot; cancel anytime</span>
+    <span class="pill trial"><b>7-day free trial</b>&nbsp;on every plan &middot; then <b>50% off your first month</b> with code LAUNCH50 &middot; cancel anytime</span>
     <h1 id="h1" data-a="Returns and buyer messages, handled while you're live." data-b="&ldquo;I changed my mind&rdquo; is not a return reason.">Returns and buyer messages, handled while you're live.</h1>
     <script>(function(){try{var q=new URLSearchParams(location.search),ref=q.get('ref');if(ref&&/^[A-Za-z0-9]{2,20}$/.test(ref))localStorage.setItem('fs_ref',ref.toUpperCase());var r=localStorage.getItem('fs_ref');if(r){document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('a[href^="https://app.finalsale.app/app"]').forEach(function(a){var u=new URL(a.href);u.searchParams.set('ref',r);a.href=u.toString()})})}}catch(e){}})()</script>
     <script>(function(){try{var v=localStorage.getItem('fs_var');if(!v){v=Math.random()<.5?'A':'B';localStorage.setItem('fs_var',v)}window.__fsVar=v;if(v==='B'){var h=document.getElementById('h1');h.innerHTML=h.getAttribute('data-b')}}catch(e){window.__fsVar='A'}})()</script>
@@ -429,7 +439,7 @@ footer .co{margin-right:auto}
 
 
 <section id="pricing"><div class="wrap">
-  <h2>Pricing <span class="trial-tag">7 days free</span></h2>
+  <h2>Pricing <span class="trial-tag">7 days free &middot; 50% off month one with LAUNCH50</span></h2>
   <p class="kicker">Four plans sized by how much you sell. Every plan includes everything.</p>
   <div class="beta-bar"><b>Try any plan free for 7 days.</b> Card at checkout, nothing charged until day 8, cancel anytime before and you pay nothing.</div>
   <div class="billing-toggle" role="group" aria-label="Billing period">
