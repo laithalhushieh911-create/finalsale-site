@@ -2,10 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<link rel="canonical" href="https://finalsale.app/safety">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Is FinalSale safe for my TikTok Shop? · FinalSale</title>
-<meta name="description" content="What FinalSale can and cannot do on your TikTok Shop: the exact API permissions, the hard limits on automation, how denials stay inside TikTok's rules, and how to pause or revoke access in one tap.">
+<meta name="description" content="What FinalSale will and will never do with your TikTok Shop: review mode, pause, take-it-back windows, and data handling.">
+<link rel="canonical" href="https://finalsale.app/safety/">
+<link rel="icon" href="/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:title" content="Safety · FinalSale">
+<meta property="og:description" content="What FinalSale will and will never do with your TikTok Shop: review mode, pause, take-it-back windows, and data handling.">
+<meta property="og:url" content="https://finalsale.app/safety/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://finalsale.app/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
 <style>
 :root{--bg:#0B0B12;--card:#15141F;--line:#262436;--ink:#F3F2FA;--muted:#A3A0B8;--purple:#8B5CF6;--blue:#3B82F6}
 *{box-sizing:border-box}
@@ -37,7 +45,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;color:var(--muted);fon
 <h2>2. The permissions it asks for, and what each is used for</h2>
 <table>
 <tr><th>Permission</th><th>What FinalSale does with it</th><th>What it never does</th></tr>
-<tr><td>Returns &amp; refunds</td><td>Reads new return requests, approves or rejects them with TikTok's reason codes, and later checks what TikTok decided on appeal.</td><td>Never issues a refund you didn't approve. Never denies a damaged, defective, wrong-item, missing-item or not-received claim.</td></tr>
+<tr><td>Returns &amp; refunds</td><td>Reads new return requests, approves or rejects them with TikTok's reason codes, and later checks what TikTok decided on appeal.</td><td>Never issues a refund you didn't approve. Never denies an "arrived damaged" claim on its own; other claims are denied automatically only when the facts are plain (see 3), and you can turn that off.</td></tr>
 <tr><td>Cancellations</td><td>Reads buyer cancel requests and declines post-auction ones with the final-sale reason (if you leave that switch on).</td><td>Never cancels an order on your behalf.</td></tr>
 <tr><td>Orders</td><td>Looks up the order behind a request: items, amount, tracking number, delivery status, so the card on your phone has everything.</td><td>Never edits, ships, or changes an order. Never exports your order list anywhere.</td></tr>
 <tr><td>Buyer chat (customer service)</td><td>Reads buyer messages and sends replies in your tone for a short list of routine questions.</td><td>Never replies to disputes, chargeback language, damage, anger, or anything it isn't sure about: those are drafted and wait for you.</td></tr>
@@ -47,7 +55,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;color:var(--muted);fon
 <h2>3. Hard limits, not settings</h2>
 <p>Some things the software cannot do no matter how it's configured:</p>
 <ul>
-<li><strong>Deny one of the five real claims.</strong> Damaged, defective, wrong item, missing items, not received: always a person. Photos attached to another reason don't change the reason.</li>
+<li><strong>Deny an "arrived damaged" claim on its own.</strong> Always a person: it reaches you with the AI's read of the photos and the strongest denial pre-selected, and nothing goes out until you tap. Not-received, defective, wrong-item and missing-item claims are auto-denied only in two plain cases &mdash; a delivery scan more than a day old, or photos that clearly don't show the problem (or no photos at all, if you leave that switch on) &mdash; and both are switches in Settings. Photos attached to another reason don't change the reason.</li>
 <li><strong>Promise money.</strong> Replies never say a refund is coming. Only your tap approves one.</li>
 <li><strong>Guess at a reason it doesn't recognize.</strong> A TikTok reason code FinalSale hasn't seen goes to your phone like a claim.</li>
 <li><strong>Deny when you haven't shipped.</strong> A cancel request or a "late" refund on an order never handed to the carrier, past your handling time, goes to you instead of being auto-denied. TikTok sides with the buyer there, and a rejection would count against you.</li>
@@ -60,7 +68,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;color:var(--muted);fon
 <li>Every rejection uses one of TikTok's own reason codes for that specific request, never a made-up or generic one.</li>
 <li>It follows up on every denial to learn whether TikTok upheld or overturned it, and prefers the reasons that hold up.</li>
 <li><strong>Circuit breaker:</strong> if 15% of a shop's recent denials (10 or more decided) are overturned, FinalSale switches that shop to review mode on its own and notifies the seller. It stops itself before TikTok's threshold, never after.</li>
-<li>Your own upheld rate is on your Overview screen at all times, next to TikTok's 20% line.</li>
+<li>Your own upheld and overturned rates are on your Overview screen at all times, next to TikTok's 20% line and FinalSale's 15% breaker.</li>
 </ul>
 
 <h2>5. Your data</h2>
@@ -79,7 +87,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;color:var(--muted);fon
 </div>
 
 <h2>7. Who's behind it</h2>
-<p>FinalSale is made by Ballin Brothers LLC, a company run by a TikTok Shop live seller, and is in TikTok's app review now. Questions, or something here you want to see proof of: <a href="mailto:hello@finalsale.app">hello@finalsale.app</a>.</p>
+<p>FinalSale is made by Ballin Brothers LLC, a company run by a TikTok Shop live seller, and is an approved app in the TikTok Shop App & Service Market. Questions, or something here you want to see proof of: <a href="mailto:hello@finalsale.app">hello@finalsale.app</a>.</p>
 <p><a href="/">&larr; Back to finalsale.app</a></p>
 </div></main>
 <footer><div class="wrap">© 2026 Ballin Brothers LLC · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/refunds">Refunds</a> · <a href="/support">Support</a></div></footer>
